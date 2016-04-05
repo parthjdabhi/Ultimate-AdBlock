@@ -1,10 +1,13 @@
 # Ultimate-AdBlock
-Ad (Content) Blocker for iOS & OSX written in Swift
+Ad + Tracker (Content) Blocker for iOS & OSX written in Swift, using the new Content Blocker API for fast blocking.
+
+Blocks hostnames and css items.
 
 ### Filters
 Ultimate AdBlock uses a couple of filters;
 
 - [http://pgl.yoyo.org/adservers/](http://pgl.yoyo.org/adservers/)
+- Custom hostnames
 
 ### ToDo
 
