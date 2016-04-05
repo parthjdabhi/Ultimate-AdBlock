@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Ultimate AdBlock
+
+  Created by Eric Horstmanshof on 28-11-15.
+  Copyright © 2015 Arrow Webprojects. All rights reserved.
+*/
+
+"NAVBAR_SETUP" = "Setup Ultimate AdBlock";
+"NAVBAR_FILTERS" = "Block Filters";
+"NAVBAR_FILTERS_ADS" = "Block Ads";
+"NAVBAR_FILTERS_TRACKERS" = "Block Trackers";
+"NAVBAR_FILTERS_SOCIAL" = "Block Social Widgets";
+"NAVBAR_SETTINGS" = "Settings";
+
+"RATE_APP" = "Rate app in App Store";
+"APP_VERSION" = "Version: %@";
+
+"FILTERS_ADS" = "Block Ads";
+"FILTERS_TRACKERS" = "Block Trackers";
+"FILTERS_SOCIAL_WIDGETS" = "Block Social Sharing Widgets";
+
+"TABLEVIEW_HEADER_TITLE_FILTERS_PREINSTALLED" = "Preinstalled filters";

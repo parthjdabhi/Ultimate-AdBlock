@@ -1,0 +1,1 @@
+.adblock,.adblocker,.adblock-enabled,.adb-enabled,#message_adblock,.adb
