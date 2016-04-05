@@ -27,6 +27,8 @@
 		07673F141CB2A517003E718A /* anti-adblock.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F121CB2A517003E718A /* anti-adblock.txt */; };
 		07673F161CB2E54B003E718A /* malwaredomainlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F151CB2E54B003E718A /* malwaredomainlist.txt */; };
 		07673F171CB2E54B003E718A /* malwaredomainlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F151CB2E54B003E718A /* malwaredomainlist.txt */; };
+		07673F191CB3C39D003E718A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 07673F181CB3C39D003E718A /* README.md */; };
+		07673F1A1CB3C39D003E718A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 07673F181CB3C39D003E718A /* README.md */; };
 		07E3A1311C20789D00010DF1 /* FiltersAdsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1301C20789D00010DF1 /* FiltersAdsTVC.swift */; };
 		07E3A1331C207D5000010DF1 /* FiltersTrackersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1321C207D5000010DF1 /* FiltersTrackersTVC.swift */; };
 		07E3A1351C207D6500010DF1 /* FiltersSocialTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1341C207D6500010DF1 /* FiltersSocialTVC.swift */; };
@@ -77,6 +79,7 @@
 		07673F0D1CB2A215003E718A /* yoyo-adservers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "yoyo-adservers.txt"; path = "BlockData/yoyo-adservers.txt"; sourceTree = SOURCE_ROOT; };
 		07673F121CB2A517003E718A /* anti-adblock.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "anti-adblock.txt"; path = "BlockData/anti-adblock.txt"; sourceTree = SOURCE_ROOT; };
 		07673F151CB2E54B003E718A /* malwaredomainlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = malwaredomainlist.txt; path = BlockData/malwaredomainlist.txt; sourceTree = SOURCE_ROOT; };
+		07673F181CB3C39D003E718A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		07E3A1301C20789D00010DF1 /* FiltersAdsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersAdsTVC.swift; path = Controllers/FiltersAdsTVC.swift; sourceTree = "<group>"; };
 		07E3A1321C207D5000010DF1 /* FiltersTrackersTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersTrackersTVC.swift; path = Controllers/FiltersTrackersTVC.swift; sourceTree = "<group>"; };
 		07E3A1341C207D6500010DF1 /* FiltersSocialTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersSocialTVC.swift; path = Controllers/FiltersSocialTVC.swift; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 				071DFF511C0A332E006BB9E5 /* User Interface */,
 				0704A2741C0643F700FF14B0 /* AppDelegate.swift */,
 				0704A2821C0643F700FF14B0 /* Info.plist */,
+				07673F181CB3C39D003E718A /* README.md */,
 			);
 			path = "Ultimate AdBlock";
 			sourceTree = "<group>";
@@ -304,6 +308,7 @@
 				07E3A1311C20789D00010DF1 /* FiltersAdsTVC.swift in Sources */,
 				07E3A1331C207D5000010DF1 /* FiltersTrackersTVC.swift in Sources */,
 				0704A2751C0643F700FF14B0 /* AppDelegate.swift in Sources */,
+				07673F191CB3C39D003E718A /* README.md in Sources */,
 				071DFF5D1C0B073C006BB9E5 /* SettingsTVC.swift in Sources */,
 				0704A2771C0643F700FF14B0 /* SetupVC.swift in Sources */,
 			);
@@ -313,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07673F1A1CB3C39D003E718A /* README.md in Sources */,
 				0704A2911C06443800FF14B0 /* ActionRequestHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
