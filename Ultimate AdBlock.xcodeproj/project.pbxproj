@@ -29,6 +29,10 @@
 		07673F171CB2E54B003E718A /* malwaredomainlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F151CB2E54B003E718A /* malwaredomainlist.txt */; };
 		07673F191CB3C39D003E718A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 07673F181CB3C39D003E718A /* README.md */; };
 		07673F1A1CB3C39D003E718A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 07673F181CB3C39D003E718A /* README.md */; };
+		07D46FA51CB52C130044137A /* css-elements-ads.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA21CB52C130044137A /* css-elements-ads.txt */; };
+		07D46FA61CB52C130044137A /* css-elements-social.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA31CB52C130044137A /* css-elements-social.txt */; };
+		07D46FA71CB52C130044137A /* trackers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA41CB52C130044137A /* trackers.txt */; };
+		07D46FA91CB52F5D0044137A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA81CB52F5D0044137A /* LICENSE */; };
 		07E3A1311C20789D00010DF1 /* FiltersAdsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1301C20789D00010DF1 /* FiltersAdsTVC.swift */; };
 		07E3A1331C207D5000010DF1 /* FiltersTrackersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1321C207D5000010DF1 /* FiltersTrackersTVC.swift */; };
 		07E3A1351C207D6500010DF1 /* FiltersSocialTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1341C207D6500010DF1 /* FiltersSocialTVC.swift */; };
@@ -80,6 +84,10 @@
 		07673F121CB2A517003E718A /* anti-adblock.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "anti-adblock.txt"; path = "BlockData/anti-adblock.txt"; sourceTree = SOURCE_ROOT; };
 		07673F151CB2E54B003E718A /* malwaredomainlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = malwaredomainlist.txt; path = BlockData/malwaredomainlist.txt; sourceTree = SOURCE_ROOT; };
 		07673F181CB3C39D003E718A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		07D46FA21CB52C130044137A /* css-elements-ads.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "css-elements-ads.txt"; path = "BlockData/css-elements-ads.txt"; sourceTree = SOURCE_ROOT; };
+		07D46FA31CB52C130044137A /* css-elements-social.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "css-elements-social.txt"; path = "BlockData/css-elements-social.txt"; sourceTree = SOURCE_ROOT; };
+		07D46FA41CB52C130044137A /* trackers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = trackers.txt; path = BlockData/trackers.txt; sourceTree = SOURCE_ROOT; };
+		07D46FA81CB52F5D0044137A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		07E3A1301C20789D00010DF1 /* FiltersAdsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersAdsTVC.swift; path = Controllers/FiltersAdsTVC.swift; sourceTree = "<group>"; };
 		07E3A1321C207D5000010DF1 /* FiltersTrackersTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersTrackersTVC.swift; path = Controllers/FiltersTrackersTVC.swift; sourceTree = "<group>"; };
 		07E3A1341C207D6500010DF1 /* FiltersSocialTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersSocialTVC.swift; path = Controllers/FiltersSocialTVC.swift; sourceTree = "<group>"; };
@@ -130,6 +138,7 @@
 				071DFF511C0A332E006BB9E5 /* User Interface */,
 				0704A2741C0643F700FF14B0 /* AppDelegate.swift */,
 				0704A2821C0643F700FF14B0 /* Info.plist */,
+				07D46FA81CB52F5D0044137A /* LICENSE */,
 				07673F181CB3C39D003E718A /* README.md */,
 			);
 			path = "Ultimate AdBlock";
@@ -184,6 +193,9 @@
 				07673F0D1CB2A215003E718A /* yoyo-adservers.txt */,
 				07673F121CB2A517003E718A /* anti-adblock.txt */,
 				07673F151CB2E54B003E718A /* malwaredomainlist.txt */,
+				07D46FA21CB52C130044137A /* css-elements-ads.txt */,
+				07D46FA31CB52C130044137A /* css-elements-social.txt */,
+				07D46FA41CB52C130044137A /* trackers.txt */,
 			);
 			name = "Update Filters Script";
 			sourceTree = "<group>";
@@ -272,9 +284,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D46FA51CB52C130044137A /* css-elements-ads.txt in Resources */,
 				07673F161CB2E54B003E718A /* malwaredomainlist.txt in Resources */,
+				07D46FA61CB52C130044137A /* css-elements-social.txt in Resources */,
+				07D46FA71CB52C130044137A /* trackers.txt in Resources */,
 				07673F101CB2A215003E718A /* yoyo-adservers.txt in Resources */,
 				071DFF561C0A33A9006BB9E5 /* Localizable.strings in Resources */,
+				07D46FA91CB52F5D0044137A /* LICENSE in Resources */,
 				0704A2811C0643F700FF14B0 /* LaunchScreen.storyboard in Resources */,
 				0704A27E1C0643F700FF14B0 /* Assets.xcassets in Resources */,
 				07673F131CB2A517003E718A /* anti-adblock.txt in Resources */,
