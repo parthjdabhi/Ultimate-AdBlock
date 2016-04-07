@@ -139,6 +139,33 @@ do {
     print("Can't read the css-elements-social.txt file.")
 }
 
+// MARK: FILTER: CSS Elements Social Fanboy
+/// Remove CSS Elements for social
+/// !!!
+/// All credit for this data: 
+/// URL:
+/// !!!
+
+var cssElementsSocialFanboy: String = ""
+
+do {
+    
+    let contents = try NSString(contentsOfFile: "BlockData/css-elements-social-fanboy.txt", usedEncoding: nil) as String
+    
+    if contents.characters.count > 0 {
+        
+        cssElementsSocialFanboy = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
+        
+        cssElementsSocialFanboy = (cssElementsSocialFanboy as String).stringByReplacingOccurrencesOfString("###", withString: "#")
+        
+        cssElementsSocialFanboy = (cssElementsSocialFanboy as String).stringByReplacingOccurrencesOfString("##.", withString: ".")
+        
+    }
+    
+} catch {
+    print("Can't read the css-elements-social-fanboy.txt file.")
+}
+
 // MARK: FILTER: Javascripts
 /// Block the following javascripts
 var javascriptElements = [String]()
@@ -210,6 +237,10 @@ filters.append(cssElementsAdsBlock)
 /// Social CSS Elements
 let cssElementsSocialBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsSocial)" ] ]
 filters.append(cssElementsSocialBlock)
+
+/// Social CSS Elements Fanboy List
+let cssElementsSocialFanboyBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsSocialFanboy)" ] ]
+filters.append(cssElementsSocialFanboyBlock)
 
 /// Javascripts
 for javascriptElement in javascriptElements {
