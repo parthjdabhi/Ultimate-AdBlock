@@ -18,8 +18,9 @@ import Foundation
 /// CD TO /path/to/update-filters.swift
 /// RUN AS: /usr/bin/swift update-filters.swift
 /// filters.json in the AdBlockerExtension is now updated.
+/// Restart or run the app on your device to get the newest filters.
 
-/// Enabled or not
+// MARK: Enabled/Disabled per filter
 
 /// Default pgl.yoyo adservers
 let adServerHostnamesEnabled = true
@@ -166,7 +167,7 @@ if antiAdBlockElementsEnabled == true {
         
         }
     } catch {
-        print("Can't read the anti-adblock.txt file.")
+        print("Can't read the css-elements-antiadblock.txt file.")
     }
     
 }
@@ -239,7 +240,7 @@ if cssElementsSocialFanboyEnabled == true {
         }
         
     } catch {
-        print("Can't read the css-elements-social-fanboy.txt file.")
+        print("Can't read the fanboys-social-blocking-list.txt file.")
     }
     
 }
@@ -267,7 +268,6 @@ if javascriptElementsEnabled == true {
 }
 
 /// Statistics
-
 let cssElementsAdsCount = cssElementsAds.componentsSeparatedByString(",").count
 let cssElementsSocialCount = cssElementsSocial.componentsSeparatedByString(",").count
 let antiAdBlockElementsCount = antiAdBlockElements.componentsSeparatedByString(",").count
@@ -289,7 +289,6 @@ print("CSS Elements (Custom) - Social: \(cssElementsSocialCount)")
 print("CSS Elements (Custom) - Anti AdBlock: \(antiAdBlockElementsCount)")
 print("CSS Elements - Social Fanboys List: \(cssElementsSocialFanboyCount)")
 print("Javascript files: \(javascriptElements.count)")
-
 print("")
 
 /// Iterate over every hostname and add it to the block list.
@@ -348,7 +347,6 @@ for javascriptElement in javascriptElements {
 
 // MARK: Generate json file.
 /// Parse the JSON and write it to a file.
-
 print("Generating filters.json file..")
 
 let data = try! NSJSONSerialization.dataWithJSONObject(filters, options: NSJSONWritingOptions.PrettyPrinted)
