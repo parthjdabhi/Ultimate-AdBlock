@@ -19,6 +19,33 @@ import Foundation
 /// RUN AS: /usr/bin/swift update-filters.swift
 /// filters.json in the AdBlockerExtension is now updated.
 
+/// Enabled or not
+
+/// Default pgl.yoyo adservers
+let adServerHostnamesEnabled = true
+
+/// Malwaredomains
+let malwareHostnamesEnabled = true
+
+/// Custom hostnames
+let customHostnamesEnabled = true
+
+/// CSS Elements Anti AdBlock
+let antiAdBlockElementsEnabled = true
+
+/// CSS Elements Ads
+let cssElementsAdsEnabled = true
+
+/// CSS Elements Social
+let cssElementsSocialEnabled = true
+
+/// CSS Elements Social from the fanboy list
+let cssElementsSocialFanboyEnabled = true
+
+/// Javascript elements
+let javascriptElementsEnabled = true
+
+/// Complete filters block
 var filters = [[String:[String:String]]]()
 
 // MARK: FILTER: Default yoyo adservers
@@ -29,18 +56,22 @@ var filters = [[String:[String:String]]]()
 /// !!!
 var adServerHostnames = [String]()
 
-do {
-    
-    let contents = try NSString(contentsOfFile: "BlockData/yoyo-adservers.txt", usedEncoding: nil) as String
-    
-    if contents.characters.count > 0 {
+if adServerHostnamesEnabled == true {
+
+    do {
         
-        adServerHostnames = contents.componentsSeparatedByString(",")
+        let contents = try NSString(contentsOfFile: "BlockData/yoyo-adservers.txt", usedEncoding: nil) as String
         
+        if contents.characters.count > 0 {
+            
+            adServerHostnames = contents.componentsSeparatedByString(",")
+            
+        }
+        
+    } catch {
+        print("Can't read the yoyo-adservers.txt file.")
     }
     
-} catch {
-    print("Can't read the yoyo-adservers.txt file.")
 }
 
 // MARK: FILTER: Malwaredomains
@@ -51,22 +82,26 @@ do {
 /// !!!
 var malwareHostnames = [String]()
 
-do {
-    
-    let contents = try NSString(contentsOfFile: "BlockData/malwaredomainlist.txt", usedEncoding: nil) as String
-    
-    if contents.characters.count > 0 {
-    
-        let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+if malwareHostnamesEnabled == true {
+
+    do {
         
-        for host in hosts {
-            malwareHostnames.append(host.substringFromIndex(host.startIndex.advancedBy(10)))
+        let contents = try NSString(contentsOfFile: "BlockData/malwaredomainlist.txt", usedEncoding: nil) as String
+        
+        if contents.characters.count > 0 {
+        
+            let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            
+            for host in hosts {
+                malwareHostnames.append(host.substringFromIndex(host.startIndex.advancedBy(10)))
+            }
+            
         }
         
+    } catch {
+        print("Can't read the malwaredomainlist.txt file.")
     }
     
-} catch {
-    print("Can't read the malwaredomainlist.txt file.")
 }
 
 /*
@@ -98,71 +133,86 @@ do {
 /// Custom hostnames to block
 var customHostnames = [String]()
 
-do {
-    
-    let contents = try NSString(contentsOfFile: "BlockData/custom-hostnames.txt", usedEncoding: nil) as String
-    
-    if contents.characters.count > 0 {
-        
-        customHostnames = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
-    
-    }
-    
-} catch {
-    print("Can't read the custom-hostnames.txt file.")
-}
+if customHostnamesEnabled == true {
 
+    do {
+        
+        let contents = try NSString(contentsOfFile: "BlockData/custom-hostnames.txt", usedEncoding: nil) as String
+        
+        if contents.characters.count > 0 {
+            
+            customHostnames = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+        
+        }
+        
+    } catch {
+        print("Can't read the custom-hostnames.txt file.")
+    }
+
+}
 // MARK: FILTER: Anti Adblock Elements
 /// Remove Anti AdBlock elements
 var antiAdBlockElements: String = ""
 
-do {
-    
-    let contents = try NSString(contentsOfFile: "BlockData/css-elements-antiadblock.txt", usedEncoding: nil) as String
-    
-    if contents.characters.count > 0 {
+if antiAdBlockElementsEnabled == true {
+
+    do {
         
-        antiAdBlockElements = contents
-    
+        let contents = try NSString(contentsOfFile: "BlockData/css-elements-antiadblock.txt", usedEncoding: nil) as String
+        
+        if contents.characters.count > 0 {
+            
+            antiAdBlockElements = contents
+        
+        }
+    } catch {
+        print("Can't read the anti-adblock.txt file.")
     }
-} catch {
-    print("Can't read the anti-adblock.txt file.")
+    
 }
 
 // MARK: FILTER: CSS Elements Ads
 /// Remove CSS Elements for ads
 var cssElementsAds: String = ""
 
-do {
-    
-    let contents = try NSString(contentsOfFile: "BlockData/css-elements-ads.txt", usedEncoding: nil) as String
-    
-    if contents.characters.count > 0 {
+if cssElementsAdsEnabled == true {
 
-        cssElementsAds = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
+    do {
         
+        let contents = try NSString(contentsOfFile: "BlockData/css-elements-ads.txt", usedEncoding: nil) as String
+        
+        if contents.characters.count > 0 {
+
+            cssElementsAds = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
+            
+        }
+        
+    } catch {
+        print("Can't read the css-elements-ads.txt file.")
     }
     
-} catch {
-    print("Can't read the css-elements-ads.txt file.")
 }
 
 // MARK: FILTER: CSS Element Social
 /// Remove CSS Elements for social
 var cssElementsSocial: String = ""
 
-do {
-    
-    let contents = try NSString(contentsOfFile: "BlockData/css-elements-social.txt", usedEncoding: nil) as String
-    
-    if contents.characters.count > 0 {
-    
-        cssElementsSocial = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
+if cssElementsSocialEnabled == true {
+
+    do {
         
+        let contents = try NSString(contentsOfFile: "BlockData/css-elements-social.txt", usedEncoding: nil) as String
+        
+        if contents.characters.count > 0 {
+        
+            cssElementsSocial = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
+            
+        }
+        
+    } catch {
+        print("Can't read the css-elements-social.txt file.")
     }
     
-} catch {
-    print("Can't read the css-elements-social.txt file.")
 }
 
 // MARK: FILTER: CSS Elements Social Fanboy
@@ -174,38 +224,46 @@ do {
 
 var cssElementsSocialFanboy: String = ""
 
-do {
-    
-    let contents = try NSString(contentsOfFile: "BlockData/fanboys-social-blocking-list.txt", usedEncoding: nil) as String
-    
-    if contents.characters.count > 0 {
+if cssElementsSocialFanboyEnabled == true {
+
+    do {
         
-        cssElementsSocialFanboy = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
-        cssElementsSocialFanboy = (cssElementsSocialFanboy as String).stringByReplacingOccurrencesOfString("###", withString: "#")
-        cssElementsSocialFanboy = (cssElementsSocialFanboy as String).stringByReplacingOccurrencesOfString("##.", withString: ".")
+        let contents = try NSString(contentsOfFile: "BlockData/fanboys-social-blocking-list.txt", usedEncoding: nil) as String
         
+        if contents.characters.count > 0 {
+            
+            cssElementsSocialFanboy = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
+            cssElementsSocialFanboy = (cssElementsSocialFanboy as String).stringByReplacingOccurrencesOfString("###", withString: "#")
+            cssElementsSocialFanboy = (cssElementsSocialFanboy as String).stringByReplacingOccurrencesOfString("##.", withString: ".")
+            
+        }
+        
+    } catch {
+        print("Can't read the css-elements-social-fanboy.txt file.")
     }
     
-} catch {
-    print("Can't read the css-elements-social-fanboy.txt file.")
 }
 
 // MARK: FILTER: Javascripts
 /// Block the following javascripts
 var javascriptElements = [String]()
 
-do {
-    
-    let contents = try NSString(contentsOfFile: "BlockData/javascripts.txt", usedEncoding: nil) as String
-    
-    if contents.characters.count > 0 {
+if javascriptElementsEnabled == true {
+
+    do {
         
-        javascriptElements = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+        let contents = try NSString(contentsOfFile: "BlockData/javascripts.txt", usedEncoding: nil) as String
         
+        if contents.characters.count > 0 {
+            
+            javascriptElements = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            
+        }
+        
+    } catch {
+        print("Can't read the javascripts.txt file.")
     }
     
-} catch {
-    print("Can't read the javascripts.txt file.")
 }
 
 /// Statistics
