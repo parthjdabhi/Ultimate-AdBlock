@@ -44,6 +44,7 @@ do {
 }
 
 // MARK: FILTER: Malwaredomains
+
 /// MalwareDomains
 /// !!!
 /// All credit for these hostnames:
@@ -67,6 +68,31 @@ do {
 } catch {
     print("Can't read the malwaredomainlist.txt file.")
 }
+
+/*
+// MARK: FILTER: Easy Privacy List
+ 
+/// Easy Privacy hostnames 
+/// !!!
+/// All Credit to: 
+/// URL:
+/// !!!
+var easyprivacyHostnames = [String]()
+
+do {
+    
+    let contents = try NSString(contentsOfFile: "BlockData/easyprivacy.txt", usedEncoding: nil) as String
+    
+    if contents.characters.count > 0 {
+        
+        easyprivacyHostnames = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+        
+    }
+    
+} catch {
+    print("Can't read the easyprivacy.txt file.")
+}
+*/
 
 // MARK: FILTER: Custom Hostnames
 /// Custom hostnames to block
@@ -92,7 +118,7 @@ var antiAdBlockElements: String = ""
 
 do {
     
-    let contents = try NSString(contentsOfFile: "BlockData/anti-adblock.txt", usedEncoding: nil) as String
+    let contents = try NSString(contentsOfFile: "BlockData/css-elements-antiadblock.txt", usedEncoding: nil) as String
     
     if contents.characters.count > 0 {
         
@@ -150,14 +176,12 @@ var cssElementsSocialFanboy: String = ""
 
 do {
     
-    let contents = try NSString(contentsOfFile: "BlockData/css-elements-social-fanboy.txt", usedEncoding: nil) as String
+    let contents = try NSString(contentsOfFile: "BlockData/fanboys-social-blocking-list.txt", usedEncoding: nil) as String
     
     if contents.characters.count > 0 {
         
         cssElementsSocialFanboy = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
-        
         cssElementsSocialFanboy = (cssElementsSocialFanboy as String).stringByReplacingOccurrencesOfString("###", withString: "#")
-        
         cssElementsSocialFanboy = (cssElementsSocialFanboy as String).stringByReplacingOccurrencesOfString("##.", withString: ".")
         
     }
@@ -184,14 +208,30 @@ do {
     print("Can't read the javascripts.txt file.")
 }
 
+/// Statistics
+
+let cssElementsAdsCount = cssElementsAds.componentsSeparatedByString(",").count
+let cssElementsSocialCount = cssElementsSocial.componentsSeparatedByString(",").count
+let antiAdBlockElementsCount = antiAdBlockElements.componentsSeparatedByString(",").count
+let cssElementsSocialFanboyCount = cssElementsSocialFanboy.componentsSeparatedByString(",").count
+
 // MARK: Iterating over the filters and add them to the blockList array.
 
 print("------------------")
 print("Started generating the filters.json file.")
 print("")
-print("Default adserver hostnames: \(adServerHostnames.count)")
+print("-- Hostnames:")
+print("yoyo pgl adserver hostnames: \(adServerHostnames.count)")
 print("Malware Domains: \(malwareHostnames.count)")
 print("Custom hostnames: \(customHostnames.count)")
+print("")
+print("-- CSS Elements Hiding & JavaScripts:")
+print("CSS Elements (Custom) - Ads: \(cssElementsAdsCount)")
+print("CSS Elements (Custom) - Social: \(cssElementsSocialCount)")
+print("CSS Elements (Custom) - Anti AdBlock: \(antiAdBlockElementsCount)")
+print("CSS Elements - Social Fanboys List: \(cssElementsSocialFanboyCount)")
+print("Javascript files: \(javascriptElements.count)")
+
 print("")
 
 /// Iterate over every hostname and add it to the block list.
