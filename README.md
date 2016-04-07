@@ -7,6 +7,10 @@ Ultimate AdBlock uses a couple of filters;
 
 - [https://pgl.yoyo.org/adservers/](https://pgl.yoyo.org/adservers/)
 - Custom hostnames
+- Anti AdBlock CSS elements
+- Ads CSS elements
+- Social sharing CSS elements
+- Javascript files
 
 All block data is stored in .txt files. Some have different formats. For example the pgl.yoyo adservers are all on one line, seperated with a ,.
 The malwaredomainlist.txt has a different format; 127.0.0.1 examplehost.com. The update-filters.swift script removes the 127.0.0.1 part so all that remains are the hosts, seperated with a ,.
@@ -16,6 +20,7 @@ The custom-hostnames.txt is also different. Every host is stored on a new line, 
 
 - malwaredomainlist filters
 - privacy trackers filter
+- fanboys social sharing list
 - converting easylists to this new format
 - OSX extension
 - iOS Interface to enable/disable filters
