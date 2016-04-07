@@ -2,6 +2,8 @@
 Ad + Tracker (Content) Blocker for iOS & OSX written in Swift, using the new Content Blocker API for fast blocking.
 Blocks hostnames and css items.
 
+The project is in active development. Basic blocking is working fine but the filters.json needs a couple of more filters before it is a good replacement for the popular existing ones.
+
 ### Filters
 Ultimate AdBlock uses a couple of filters;
 
@@ -15,6 +17,9 @@ Ultimate AdBlock uses a couple of filters;
 All block data is stored in .txt files. Some have different formats. For example the pgl.yoyo adservers are all on one line, seperated with a ,.
 The malwaredomainlist.txt has a different format; 127.0.0.1 examplehost.com. The update-filters.swift script removes the 127.0.0.1 part so all that remains are the hosts, seperated with a ,.
 The custom-hostnames.txt is also different. Every host is stored on a new line, for clarity.
+
+By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
+Run the script again to generate fresh filters.
 
 ### ToDo
 
@@ -53,6 +58,7 @@ If you want to contribute to this project please consider opening an issue of a 
 For more info about this awesome API please check;
 
 - [https://developer.apple.com/videos/play/wwdc2015/511/](https://developer.apple.com/videos/play/wwdc2015/511/) - WWDC 2015 session
+- [https://webkit.org/blog/3476/content-blockers-first-look/](https://webkit.org/blog/3476/content-blockers-first-look/) - Introduction to WebKit Content Blockers, First Look
 
 ### License
 The MIT License (MIT)
