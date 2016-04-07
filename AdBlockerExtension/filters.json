@@ -19388,30 +19388,6 @@
       "type" : "block"
     },
     "trigger" : {
-      "url-filter" : "alpencams.com"
-    }
-  },
-  {
-    "action" : {
-      "type" : "block"
-    },
-    "trigger" : {
-      "url-filter" : "alpencam.com"
-    }
-  },
-  {
-    "action" : {
-      "type" : "block"
-    },
-    "trigger" : {
-      "url-filter" : "alpenkut.com"
-    }
-  },
-  {
-    "action" : {
-      "type" : "block"
-    },
-    "trigger" : {
       "url-filter" : "connect.facebook.net"
     }
   },
@@ -19833,6 +19809,94 @@
   },
   {
     "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "cdn.feedbackify.com"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "m.addthis.com"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "s.clicktale.net"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "s7.addthis.com"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "ads.servebom.com"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "cdn.boomtrain.com"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "cdn.yldbt.com"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "i.yldbt.com"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "static.parsely.com"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "tru.am"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "passport.mobilenations.com"
+    }
+  },
+  {
+    "action" : {
       "selector" : ".adblock,.adblocker,.adblock-enabled,.adb-enabled,#message_adblock,.adb",
       "type" : "css-display-none"
     },
@@ -19842,7 +19906,7 @@
   },
   {
     "action" : {
-      "selector" : ".ad,.milq-partner,.mobileBanner,.social,.share,.ad-container,.socials,.newsletter,.funbox,.advert,.advert-wrap,.m-ad,.m-article__share-buttons,.inlinead,.sharedaddy,.fipoba,.social-media,.media-ad.section-ad,.tg-footer-header__social-buttons-wrap,.article-sharing-footer,.social-links,.landing-sprite-ordot,.landing-sprite-fb,.lgi-footertop-extra,.content-container-leaderboard,.dump-soc,.xl-help,.social-bar,.billboard_wrapper,.bnnr,.advertoriallist,.socialbuttons,.socialbar",
+      "selector" : ".ad,.milq-partner,.mobileBanner,.ad-container,.newsletter,.funbox,.advert,.advert-wrap,.m-ad,.inlinead,.sharedaddy,.fipoba,.media-ad.section-ad,.landing-sprite-ordot,.landing-sprite-fb,.lgi-footertop-extra,.content-container-leaderboard,.dump-soc,.xl-help,.social-bar,.billboard_wrapper,.bnnr,.advertoriallist,.adsbygoogle,.footer-banner,.addiv,.bannercenter,.skyradio-wrapper,.netshelter-ad,.visor-breaker-ad,#b_ac,#b_re,#newsletter,#huckster-desktop-wrapper,#huckster-mobile-square-wrapper,#sponsored,#div-gpt-ad,#adTop_mobile,#adUnder_mobile,#adUnder2_mobile,#adUnder_Comment_mobile,#sideAd,#contentAd,#contentAdTwo,#adf-billboard,#sponsor,#sponsor-mobile,#idOfElementWeShouldDisplayTheAdsIn,#bva320x50container,#radarPage_banner,#adsenseAlternativeTop,#addThisChartContainerRain,#ad-row,#banner-Rectangle,#bvacontainer,#abogoodie,p.ad-container,aside.mashsb-container,aside.mashsb-main,section[id=site-ads],ins.adsbygoogle,li.news__type--promo",
       "type" : "css-display-none"
     },
     "trigger" : {
@@ -19851,70 +19915,7 @@
   },
   {
     "action" : {
-      "selector" : "#b_ac,#b_re,#newsletter,#huckster-desktop-wrapper,#huckster-mobile-square-wrapper,#sponsored,#div-gpt-ad,#adTop_mobile,#adUnder_mobile,#adUnder2_mobile,#adUnder_Comment_mobile, #sideAd,#contentAd,#contentAdTwo,#adf-billboard,#sponsor,#sponsor-mobile,#chorus-social-fixed,#idOfElementWeShouldDisplayTheAdsIn, #bva320x50container,#radarPage_banner,#social,#adsenseAlternativeTop,#addThisChartContainerRain,#ad-row,#socialmedia_box",
-      "type" : "css-display-none"
-    },
-    "trigger" : {
-      "url-filter" : ".*"
-    }
-  },
-  {
-    "action" : {
-      "selector" : "li.news__type--promo, li.test",
-      "type" : "css-display-none"
-    },
-    "trigger" : {
-      "url-filter" : ".*"
-    }
-  },
-  {
-    "action" : {
-      "selector" : "aside.mashsb-container, aside.mashsb-main",
-      "type" : "css-display-none"
-    },
-    "trigger" : {
-      "url-filter" : ".*"
-    }
-  },
-  {
-    "action" : {
-      "selector" : "ul.socials,ul.social-badges",
-      "type" : "css-display-none"
-    },
-    "trigger" : {
-      "url-filter" : ".*"
-    }
-  },
-  {
-    "action" : {
-      "selector" : "p.social,p.socials,p.ad-container",
-      "type" : "css-display-none"
-    },
-    "trigger" : {
-      "url-filter" : ".*"
-    }
-  },
-  {
-    "action" : {
-      "selector" : "section[id=site-ads]",
-      "type" : "css-display-none"
-    },
-    "trigger" : {
-      "url-filter" : ".*"
-    }
-  },
-  {
-    "action" : {
-      "selector" : "ins.adsbygoogle",
-      "type" : "css-display-none"
-    },
-    "trigger" : {
-      "url-filter" : ".*"
-    }
-  },
-  {
-    "action" : {
-      "selector" : "meta[name=apple-itunes-app]",
+      "selector" : ".socialbuttons,.socialbar,.tg-footer-header__social-buttons-wrap,.article-sharing-footer,.social-links,.social-media,.m-article__share-buttons,.socials,.social,.share,.socialcount,.social_follow_buttons,#socialmedia_box,#social,#chorus-social-fixed,#socialButtonsContainer,span.facebookLikeContainer,ul.socials,ul.social-badges,p.social,p.socials",
       "type" : "css-display-none"
     },
     "trigger" : {
@@ -20014,7 +20015,7 @@
       "type" : "block"
     },
     "trigger" : {
-      "url-filter" : "twitter\\.com\/widgets\\.js"
+      "url-filter" : "twitter.com\/widgets\\.js"
     }
   },
   {
@@ -20119,6 +20120,22 @@
     },
     "trigger" : {
       "url-filter" : "usabilla\\.js"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "analytics\\.js"
+    }
+  },
+  {
+    "action" : {
+      "type" : "block"
+    },
+    "trigger" : {
+      "url-filter" : "prebid.min\\.js"
     }
   }
 ]

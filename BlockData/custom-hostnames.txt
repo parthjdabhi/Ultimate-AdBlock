@@ -51,3 +51,14 @@ assoc.amazon.de
 cloud.cobrowser.net
 engager.tmg.nl
 account.sanomaservices.nl
+cdn.feedbackify.com
+m.addthis.com
+s.clicktale.net
+s7.addthis.com
+ads.servebom.com
+cdn.boomtrain.com
+cdn.yldbt.com
+i.yldbt.com
+static.parsely.com
+tru.am
+passport.mobilenations.com

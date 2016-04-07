@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// update-filter.swift file to update the adblocking filters used by the application.
+/// update-filters.swift file to update the adblocking filters used by the application.
 /// There is an already available hosts list available and you can add custom ones.
 ///
 ///
@@ -19,7 +19,9 @@ import Foundation
 /// RUN AS: /usr/bin/swift update-filters.swift
 /// filters.json in the AdBlockerExtension is now updated.
 
-// MARK: Hostnames and CSS items to block
+var filters = [[String:[String:String]]]()
+
+// MARK: FILTER: Default yoyo adservers
 
 /// pgl.yoyo adservers
 /// !!!
@@ -28,14 +30,20 @@ import Foundation
 var adServerHostnames = [String]()
 
 do {
-    let contents = try NSString(contentsOfFile: "BlockData/yoyo-adservers.txt", usedEncoding: nil) as String
-    let hosts = contents.componentsSeparatedByString(",")
     
-    adServerHostnames = hosts
+    let contents = try NSString(contentsOfFile: "BlockData/yoyo-adservers.txt", usedEncoding: nil) as String
+    
+    if contents.characters.count > 0 {
+        
+        adServerHostnames = contents.componentsSeparatedByString(",")
+        
+    }
+    
 } catch {
     print("Can't read the yoyo-adservers.txt file.")
 }
 
+// MARK: FILTER: Malwaredomains
 /// MalwareDomains
 /// !!!
 /// All credit for these hostnames:
@@ -43,83 +51,111 @@ do {
 var malwareHostnames = [String]()
 
 do {
-    let contents = try NSString(contentsOfFile: "BlockData/malwaredomainlist.txt", usedEncoding: nil) as String
-    let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
     
-    for host in hosts {
-        malwareHostnames.append(host.substringFromIndex(host.startIndex.advancedBy(10)))
+    let contents = try NSString(contentsOfFile: "BlockData/malwaredomainlist.txt", usedEncoding: nil) as String
+    
+    if contents.characters.count > 0 {
+    
+        let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+        
+        for host in hosts {
+            malwareHostnames.append(host.substringFromIndex(host.startIndex.advancedBy(10)))
+        }
+        
     }
+    
 } catch {
     print("Can't read the malwaredomainlist.txt file.")
 }
 
+// MARK: FILTER: Custom Hostnames
 /// Custom hostnames to block
 var customHostnames = [String]()
 
 do {
-    let contents = try NSString(contentsOfFile: "BlockData/custom-hostnames.txt", usedEncoding: nil) as String
-    let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
     
-    customHostnames = hosts
+    let contents = try NSString(contentsOfFile: "BlockData/custom-hostnames.txt", usedEncoding: nil) as String
+    
+    if contents.characters.count > 0 {
+        
+        customHostnames = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+    
+    }
+    
 } catch {
     print("Can't read the custom-hostnames.txt file.")
 }
 
-/// Remove Anti AdBlock items
-var antiAdBlockItems: String = ""
+// MARK: FILTER: Anti Adblock Elements
+/// Remove Anti AdBlock elements
+var antiAdBlockElements: String = ""
 
 do {
+    
     let contents = try NSString(contentsOfFile: "BlockData/anti-adblock.txt", usedEncoding: nil) as String
-    antiAdBlockItems = contents
+    
+    if contents.characters.count > 0 {
+        
+        antiAdBlockElements = contents
+    
+    }
 } catch {
     print("Can't read the anti-adblock.txt file.")
 }
 
-/// Block CSS classes
-let cssClasses: String = ".ad,.milq-partner,.mobileBanner,.social,.share,.ad-container,.socials,.newsletter,.funbox,.advert,.advert-wrap,.m-ad,.m-article__share-buttons,.inlinead,.sharedaddy,.fipoba,.social-media,.media-ad.section-ad,.tg-footer-header__social-buttons-wrap,.article-sharing-footer,.social-links,.landing-sprite-ordot,.landing-sprite-fb,.lgi-footertop-extra,.content-container-leaderboard,.dump-soc,.xl-help,.social-bar,.billboard_wrapper,.bnnr,.advertoriallist,.socialbuttons,.socialbar"
+// MARK: FILTER: CSS Elements Ads
+/// Remove CSS Elements for ads
+var cssElementsAds: String = ""
 
-/// Block the following CSS Ids
-let cssIds: String = "#b_ac,#b_re,#newsletter,#huckster-desktop-wrapper,#huckster-mobile-square-wrapper,#sponsored,#div-gpt-ad,#adTop_mobile,#adUnder_mobile,#adUnder2_mobile,#adUnder_Comment_mobile, #sideAd,#contentAd,#contentAdTwo,#adf-billboard,#sponsor,#sponsor-mobile,#chorus-social-fixed,#idOfElementWeShouldDisplayTheAdsIn, #bva320x50container,#radarPage_banner,#social,#adsenseAlternativeTop,#addThisChartContainerRain,#ad-row,#socialmedia_box"
+do {
+    
+    let contents = try NSString(contentsOfFile: "BlockData/css-elements-ads.txt", usedEncoding: nil) as String
+    
+    if contents.characters.count > 0 {
 
-/// Block the following CSS UL items
-let cssUls: String = "ul.socials,ul.social-badges"
-
-/// Block the following CSS P items
-let cssPs: String = "p.social,p.socials,p.ad-container"
-
-/// Block the following CSS aside items
-let cssAsides: String = "aside.mashsb-container, aside.mashsb-main"
-
-/// Block the following CSS section items
-let cssSections: String = "section[id=site-ads]"
-
-/// Block the following CSS ins items
-let cssIns: String = "ins.adsbygoogle"
-
-/// Block the following CSS li items
-let cssLi: String = "li.news__type--promo, li.test"
-
-/// Block the following CSS Meta items
-let cssMeta: String = "meta[name=apple-itunes-app]"
-
-/// Block the following javascripts
-let javascriptsToBlock: String = "chartbeat\\.js,beacon\\.js,beacon.min\\.js,alllinksclicktracker\\.js,atrk\\.js,dtrack\\.js,gatracking\\.js,gpt\\.js,kissmetrics\\.js,omniture\\.js,sitecatalyst\\.js,twitter\\.com/widgets\\.js,usertracking_script\\.js,tracker\\.js,adsbygoogle\\.js,webtrekk_v3\\.js,plusone\\.js,widgets\\.js,advertising\\.js,call-me-now-popup.min\\.js,survey\\.js,tapatalkdetect\\.js,ads\\.js,socialmedia\\.js,usabilla\\.js"
-
-/// Complete filters array
-var filters = [[String:[String:String]]]()
+        cssElementsAds = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
         
-// Arrays of block items.
-let cssClassArray = cssClasses.componentsSeparatedByString(",")
-let cssIdArray = cssIds.componentsSeparatedByString(",")
-let cssUlArray = cssUls.componentsSeparatedByString(",")
-let cssPArray = cssPs.componentsSeparatedByString(",")
-let cssAsideArray = cssAsides.componentsSeparatedByString(",")
-let cssSectionArray = cssSections.componentsSeparatedByString(",")
-let cssInsArray = cssIns.componentsSeparatedByString(",")
-let cssLiArray = cssLi.componentsSeparatedByString(",")
-let cssMetaArray = cssMeta.componentsSeparatedByString(",")
+    }
+    
+} catch {
+    print("Can't read the css-elements-ads.txt file.")
+}
 
-let javascriptsArray = javascriptsToBlock.componentsSeparatedByString(",")
+// MARK: FILTER: CSS Element Social
+/// Remove CSS Elements for social
+var cssElementsSocial: String = ""
+
+do {
+    
+    let contents = try NSString(contentsOfFile: "BlockData/css-elements-social.txt", usedEncoding: nil) as String
+    
+    if contents.characters.count > 0 {
+    
+        cssElementsSocial = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
+        
+    }
+    
+} catch {
+    print("Can't read the css-elements-social.txt file.")
+}
+
+// MARK: FILTER: Javascripts
+/// Block the following javascripts
+var javascriptElements = [String]()
+
+do {
+    
+    let contents = try NSString(contentsOfFile: "BlockData/javascripts.txt", usedEncoding: nil) as String
+    
+    if contents.characters.count > 0 {
+        
+        javascriptElements = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+        
+    }
+    
+} catch {
+    print("Can't read the javascripts.txt file.")
+}
 
 // MARK: Iterating over the filters and add them to the blockList array.
 
@@ -129,9 +165,6 @@ print("")
 print("Default adserver hostnames: \(adServerHostnames.count)")
 print("Malware Domains: \(malwareHostnames.count)")
 print("Custom hostnames: \(customHostnames.count)")
-print("CSS Classes: \(cssClassArray.count)")
-print("CSS Ids: \(cssIdArray.count)")
-print("Javascripts: \(javascriptsArray.count)")
 print("")
 
 /// Iterate over every hostname and add it to the block list.
@@ -166,108 +199,29 @@ for customHost in customHostnames {
     }
 }
 
-/// Anti Adblock items
-let blockAntiAdsCSS = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(antiAdBlockItems)" ] ]
-filters.append(blockAntiAdsCSS)
+/// Anti Adblock Elements
+let antiAdBlockElementsBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(antiAdBlockElements)" ] ]
+filters.append(antiAdBlockElementsBlock)
 
-let blockJsonCSS = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssClasses)" ] ]
-filters.append(blockJsonCSS)
+/// Ads CSS Elements
+let cssElementsAdsBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsAds)" ] ]
+filters.append(cssElementsAdsBlock)
 
-let blockJsonIds = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssIds)" ] ]
-filters.append(blockJsonIds)
+/// Social CSS Elements
+let cssElementsSocialBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsSocial)" ] ]
+filters.append(cssElementsSocialBlock)
 
-let blockLiCss = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssLi)" ] ]
-filters.append(blockLiCss)
-
-let blockAsidesCss = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssAsides)" ] ]
-filters.append(blockAsidesCss)
-
-let blockUlCss = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssUls)" ] ]
-filters.append(blockUlCss)
-
-let blockPCss = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssPs)" ] ]
-filters.append(blockPCss)
-
-let blockSectionCss = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssSections)" ] ]
-filters.append(blockSectionCss)
-
-let blockInsCss = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssIns)" ] ]
-filters.append(blockInsCss)
-
-let blockMetaCss = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssMeta)" ] ]
-filters.append(blockMetaCss)
-
-/*
-// Loop over every css div ul and add it to the block list.
-for cssUl in cssUlArray {
-    if cssUl != "" {
-        let block = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "ul.\(cssUl)" ] ]
-        //blocks.append(block)
-    }
+/// Javascripts
+for javascriptElement in javascriptElements {
+    let javascriptElementBlock = ["trigger" : ["url-filter" : "\(javascriptElement)" ], "action" : [ "type" : "block" ] ]
+    filters.append(javascriptElementBlock)
 }
- */
 
-/*
-// Loop over every css div p and add it to the block list.
-for cssP in cssPArray {
-    if cssP != "" {
-        let block = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "p.\(cssP)" ] ]
-        //blocks.append(block)
-    }
-}
- */
-
-/*
-// Loop over every css div aside and add it to the block list.
-for cssAside in cssAsideArray {
-    if cssAside != "" {
-        let block = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "aside.\(cssAside)" ] ]
-        ///blocks.append(block)
-    }
-}
- */
-
-/*
-// Loop over every css div section and add it to the block list.
-for cssSection in cssSectionArray {
-    if cssSection != "" {
-        let block = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "section[id=\(cssSection)]" ] ]
-        //blocks.append(block)
-    }
-}
- */
-
-/*
-// Loop over every css div ins and add it to the block list.
-for cssin in cssInsArray {
-    if cssin != "" {
-        let block = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "ins.\(cssin)" ] ]
-        //blocks.append(block)
-    }
-}
- */
-
-/*
-for cssLi in cssLiArray {
-    if cssLi != "" {
-        let block = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "li.\(cssLi)" ] ]
-        //filters.append(block)
-    }
-}
- */
-
-// Loop over every javascript and add it to the block list.
-for javascript in javascriptsArray {
-    if javascript != "" {
-        let block = ["trigger" : ["url-filter" : String(javascript) ], "action" : [ "type" : "block" ] ]
-       filters.append(block)
-    }
-}
+// MARK: Generate json file.
+/// Parse the JSON and write it to a file.
 
 print("Generating filters.json file..")
 
-// MARK: Generate json file.
-// Parse the JSON and write it to a file.
 let data = try! NSJSONSerialization.dataWithJSONObject(filters, options: NSJSONWritingOptions.PrettyPrinted)
 let string = NSString(data: data, encoding: NSUTF8StringEncoding)
 
@@ -277,15 +231,6 @@ do {
 catch {
     print("Extension Writing Error: \(error)")
 }
-
-/*
-do {
-    try string!.writeToFile("Ultimate Adblock/filters.json", atomically: false, encoding: NSUTF8StringEncoding)
-}
-catch {
-    print("Writing Error: \(error)")
-}
- */
 
 print("All done! filters.json has been updated.")
 print("Restart the app on the device to load the new filters.")

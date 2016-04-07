@@ -33,6 +33,7 @@
 		07D46FA61CB52C130044137A /* css-elements-social.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA31CB52C130044137A /* css-elements-social.txt */; };
 		07D46FA71CB52C130044137A /* trackers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA41CB52C130044137A /* trackers.txt */; };
 		07D46FA91CB52F5D0044137A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA81CB52F5D0044137A /* LICENSE */; };
+		07D46FAB1CB5583D0044137A /* javascripts.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FAA1CB5583D0044137A /* javascripts.txt */; };
 		07E3A1311C20789D00010DF1 /* FiltersAdsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1301C20789D00010DF1 /* FiltersAdsTVC.swift */; };
 		07E3A1331C207D5000010DF1 /* FiltersTrackersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1321C207D5000010DF1 /* FiltersTrackersTVC.swift */; };
 		07E3A1351C207D6500010DF1 /* FiltersSocialTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1341C207D6500010DF1 /* FiltersSocialTVC.swift */; };
@@ -88,6 +89,7 @@
 		07D46FA31CB52C130044137A /* css-elements-social.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "css-elements-social.txt"; path = "BlockData/css-elements-social.txt"; sourceTree = SOURCE_ROOT; };
 		07D46FA41CB52C130044137A /* trackers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = trackers.txt; path = BlockData/trackers.txt; sourceTree = SOURCE_ROOT; };
 		07D46FA81CB52F5D0044137A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		07D46FAA1CB5583D0044137A /* javascripts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = javascripts.txt; path = BlockData/javascripts.txt; sourceTree = SOURCE_ROOT; };
 		07E3A1301C20789D00010DF1 /* FiltersAdsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersAdsTVC.swift; path = Controllers/FiltersAdsTVC.swift; sourceTree = "<group>"; };
 		07E3A1321C207D5000010DF1 /* FiltersTrackersTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersTrackersTVC.swift; path = Controllers/FiltersTrackersTVC.swift; sourceTree = "<group>"; };
 		07E3A1341C207D6500010DF1 /* FiltersSocialTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersSocialTVC.swift; path = Controllers/FiltersSocialTVC.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				07D46FA21CB52C130044137A /* css-elements-ads.txt */,
 				07D46FA31CB52C130044137A /* css-elements-social.txt */,
 				07D46FA41CB52C130044137A /* trackers.txt */,
+				07D46FAA1CB5583D0044137A /* javascripts.txt */,
 			);
 			name = "Update Filters Script";
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				071DFF561C0A33A9006BB9E5 /* Localizable.strings in Resources */,
 				07D46FA91CB52F5D0044137A /* LICENSE in Resources */,
 				0704A2811C0643F700FF14B0 /* LaunchScreen.storyboard in Resources */,
+				07D46FAB1CB5583D0044137A /* javascripts.txt in Resources */,
 				0704A27E1C0643F700FF14B0 /* Assets.xcassets in Resources */,
 				07673F131CB2A517003E718A /* anti-adblock.txt in Resources */,
 				0704A27C1C0643F700FF14B0 /* Main.storyboard in Resources */,
