@@ -27,14 +27,11 @@
 		07673F141CB2A517003E718A /* css-elements-antiadblock.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F121CB2A517003E718A /* css-elements-antiadblock.txt */; };
 		07673F161CB2E54B003E718A /* malwaredomainlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F151CB2E54B003E718A /* malwaredomainlist.txt */; };
 		07673F171CB2E54B003E718A /* malwaredomainlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F151CB2E54B003E718A /* malwaredomainlist.txt */; };
-		07673F191CB3C39D003E718A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 07673F181CB3C39D003E718A /* README.md */; };
-		07673F1A1CB3C39D003E718A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 07673F181CB3C39D003E718A /* README.md */; };
 		07D46FA51CB52C130044137A /* css-elements-ads.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA21CB52C130044137A /* css-elements-ads.txt */; };
 		07D46FA61CB52C130044137A /* css-elements-social.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA31CB52C130044137A /* css-elements-social.txt */; };
 		07D46FA71CB52C130044137A /* easyprivacy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA41CB52C130044137A /* easyprivacy.txt */; };
 		07D46FA91CB52F5D0044137A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA81CB52F5D0044137A /* LICENSE */; };
 		07D46FAB1CB5583D0044137A /* javascripts.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FAA1CB5583D0044137A /* javascripts.txt */; };
-		07D46FAD1CB659240044137A /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 07D46FAC1CB659240044137A /* CHANGELOG.md */; };
 		07D46FB01CB65BF90044137A /* fanboys-social-blocking-list.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FAF1CB65BF90044137A /* fanboys-social-blocking-list.txt */; };
 		07E3A1311C20789D00010DF1 /* FiltersAdsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1301C20789D00010DF1 /* FiltersAdsTVC.swift */; };
 		07E3A1331C207D5000010DF1 /* FiltersTrackersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3A1321C207D5000010DF1 /* FiltersTrackersTVC.swift */; };
@@ -362,13 +359,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				075B47BF1CA934BC0057E582 /* update-filters.swift in Sources */,
-				07D46FAD1CB659240044137A /* CHANGELOG.md in Sources */,
 				071DFF5B1C0B06A9006BB9E5 /* FiltersTVC.swift in Sources */,
 				07E3A1351C207D6500010DF1 /* FiltersSocialTVC.swift in Sources */,
 				07E3A1311C20789D00010DF1 /* FiltersAdsTVC.swift in Sources */,
 				07E3A1331C207D5000010DF1 /* FiltersTrackersTVC.swift in Sources */,
 				0704A2751C0643F700FF14B0 /* AppDelegate.swift in Sources */,
-				07673F191CB3C39D003E718A /* README.md in Sources */,
 				071DFF5D1C0B073C006BB9E5 /* SettingsTVC.swift in Sources */,
 				0704A2771C0643F700FF14B0 /* SetupVC.swift in Sources */,
 			);
@@ -378,7 +373,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07673F1A1CB3C39D003E718A /* README.md in Sources */,
 				0704A2911C06443800FF14B0 /* ActionRequestHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
