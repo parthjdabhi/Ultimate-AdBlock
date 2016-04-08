@@ -56,12 +56,13 @@ var filters = [[String:[String:String]]]()
 /// All credit for these hostnames: https://pgl.yoyo.org/adservers/
 /// !!!
 var adServerHostnames = [String]()
+let adServerHostnamesFile = "BlockData/yoyo-adservers.txt"
 
 if adServerHostnamesEnabled == true {
 
     do {
         
-        let contents = try NSString(contentsOfFile: "BlockData/yoyo-adservers.txt", usedEncoding: nil) as String
+        let contents = try NSString(contentsOfFile: adServerHostnamesFile, usedEncoding: nil) as String
         
         if contents.characters.count > 0 {
             
@@ -70,7 +71,7 @@ if adServerHostnamesEnabled == true {
         }
         
     } catch {
-        print("Can't read the yoyo-adservers.txt file.")
+        print("Can't read the \(adServerHostnamesFile) file.")
     }
     
 }
@@ -82,12 +83,13 @@ if adServerHostnamesEnabled == true {
 /// All credit for these hostnames:
 /// !!!
 var malwareHostnames = [String]()
+let malwareHostnamesFile = "BlockData/malwaredomainlist.txt"
 
 if malwareHostnamesEnabled == true {
 
     do {
         
-        let contents = try NSString(contentsOfFile: "BlockData/malwaredomainlist.txt", usedEncoding: nil) as String
+        let contents = try NSString(contentsOfFile: malwareHostnamesFile, usedEncoding: nil) as String
         
         if contents.characters.count > 0 {
         
@@ -100,7 +102,7 @@ if malwareHostnamesEnabled == true {
         }
         
     } catch {
-        print("Can't read the malwaredomainlist.txt file.")
+        print("Can't read the \(malwareHostnamesFile) file.")
     }
     
 }
@@ -133,12 +135,13 @@ do {
 // MARK: FILTER: Custom Hostnames
 /// Custom hostnames to block
 var customHostnames = [String]()
+let customHostnamesFile = "BlockData/custom-hostnames.txt"
 
 if customHostnamesEnabled == true {
 
     do {
         
-        let contents = try NSString(contentsOfFile: "BlockData/custom-hostnames.txt", usedEncoding: nil) as String
+        let contents = try NSString(contentsOfFile: customHostnamesFile, usedEncoding: nil) as String
         
         if contents.characters.count > 0 {
             
@@ -147,19 +150,20 @@ if customHostnamesEnabled == true {
         }
         
     } catch {
-        print("Can't read the custom-hostnames.txt file.")
+        print("Can't read the \(customHostnamesFile) file.")
     }
 
 }
 // MARK: FILTER: Anti Adblock Elements
 /// Remove Anti AdBlock elements
 var antiAdBlockElements: String = ""
+let antiAdBlockElementsFile = "BlockData/css-elements-antiadblock.txt"
 
 if antiAdBlockElementsEnabled == true {
 
     do {
         
-        let contents = try NSString(contentsOfFile: "BlockData/css-elements-antiadblock.txt", usedEncoding: nil) as String
+        let contents = try NSString(contentsOfFile: antiAdBlockElementsFile, usedEncoding: nil) as String
         
         if contents.characters.count > 0 {
             
@@ -167,7 +171,7 @@ if antiAdBlockElementsEnabled == true {
         
         }
     } catch {
-        print("Can't read the css-elements-antiadblock.txt file.")
+        print("Can't read the \(antiAdBlockElementsFile) file.")
     }
     
 }
@@ -175,12 +179,13 @@ if antiAdBlockElementsEnabled == true {
 // MARK: FILTER: CSS Elements Ads
 /// Remove CSS Elements for ads
 var cssElementsAds: String = ""
+let cssElementsAdsFile = "BlockData/css-elements-ads.txt"
 
 if cssElementsAdsEnabled == true {
 
     do {
         
-        let contents = try NSString(contentsOfFile: "BlockData/css-elements-ads.txt", usedEncoding: nil) as String
+        let contents = try NSString(contentsOfFile: cssElementsAdsFile, usedEncoding: nil) as String
         
         if contents.characters.count > 0 {
 
@@ -189,7 +194,7 @@ if cssElementsAdsEnabled == true {
         }
         
     } catch {
-        print("Can't read the css-elements-ads.txt file.")
+        print("Can't read the \(cssElementsAdsFile) file.")
     }
     
 }
@@ -197,12 +202,13 @@ if cssElementsAdsEnabled == true {
 // MARK: FILTER: CSS Element Social
 /// Remove CSS Elements for social
 var cssElementsSocial: String = ""
+let cssElementsSocialFile = "BlockData/css-elements-social.txt"
 
 if cssElementsSocialEnabled == true {
 
     do {
         
-        let contents = try NSString(contentsOfFile: "BlockData/css-elements-social.txt", usedEncoding: nil) as String
+        let contents = try NSString(contentsOfFile: cssElementsSocialFile, usedEncoding: nil) as String
         
         if contents.characters.count > 0 {
         
@@ -211,7 +217,7 @@ if cssElementsSocialEnabled == true {
         }
         
     } catch {
-        print("Can't read the css-elements-social.txt file.")
+        print("Can't read the \(cssElementsSocialFile) file.")
     }
     
 }
@@ -224,12 +230,13 @@ if cssElementsSocialEnabled == true {
 /// !!!
 
 var cssElementsSocialFanboy: String = ""
+let cssElementsSocialFanboyFile = "BlockData/fanboys-social-blocking-list.txt"
 
 if cssElementsSocialFanboyEnabled == true {
 
     do {
         
-        let contents = try NSString(contentsOfFile: "BlockData/fanboys-social-blocking-list.txt", usedEncoding: nil) as String
+        let contents = try NSString(contentsOfFile: cssElementsSocialFanboyFile, usedEncoding: nil) as String
         
         if contents.characters.count > 0 {
             
@@ -240,7 +247,7 @@ if cssElementsSocialFanboyEnabled == true {
         }
         
     } catch {
-        print("Can't read the fanboys-social-blocking-list.txt file.")
+        print("Can't read the \(cssElementsSocialFanboyFile) file.")
     }
     
 }
@@ -248,12 +255,13 @@ if cssElementsSocialFanboyEnabled == true {
 // MARK: FILTER: Javascripts
 /// Block the following javascripts
 var javascriptElements = [String]()
+let javascriptElementsFile = "BlockData/javascripts.txt"
 
 if javascriptElementsEnabled == true {
 
     do {
         
-        let contents = try NSString(contentsOfFile: "BlockData/javascripts.txt", usedEncoding: nil) as String
+        let contents = try NSString(contentsOfFile: javascriptElementsFile, usedEncoding: nil) as String
         
         if contents.characters.count > 0 {
             
@@ -262,7 +270,7 @@ if javascriptElementsEnabled == true {
         }
         
     } catch {
-        print("Can't read the javascripts.txt file.")
+        print("Can't read the \(javascriptElementsFile) file.")
     }
     
 }
