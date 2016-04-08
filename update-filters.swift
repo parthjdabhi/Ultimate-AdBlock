@@ -155,9 +155,9 @@ if customHostnamesEnabled == true {
 
 }
 // MARK: FILTER: Anti Adblock Elements
-/// Remove Anti AdBlock elements
+/// Remove Anti AdBlock CSS elements
 var antiAdBlockElements: String = ""
-let antiAdBlockElementsFile = "BlockData/css-elements-antiadblock.txt"
+let antiAdBlockElementsFile = "BlockData/custom-css-elements-antiadblock.txt"
 
 if antiAdBlockElementsEnabled == true {
 
@@ -167,7 +167,7 @@ if antiAdBlockElementsEnabled == true {
         
         if contents.characters.count > 0 {
             
-            antiAdBlockElements = contents
+            antiAdBlockElements = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
         
         }
     } catch {
@@ -200,7 +200,7 @@ if cssElementsAdsEnabled == true {
 }
 
 // MARK: FILTER: CSS Element Social
-/// Remove CSS Elements for social
+/// Remove CSS Elements for social buttons
 var cssElementsSocial: String = ""
 let cssElementsSocialFile = "BlockData/css-elements-social.txt"
 
@@ -223,7 +223,7 @@ if cssElementsSocialEnabled == true {
 }
 
 // MARK: FILTER: CSS Elements Social Fanboy
-/// Remove CSS Elements for social
+/// Remove CSS Elements for social buttons
 /// !!!
 /// All credit for this data: 
 /// URL:
@@ -315,7 +315,7 @@ for host in malwareHostnames {
     }
 }
 
-// Iterate over every custom hostname and add it to the block list.
+/// Iterate over every custom hostname and add it to the block list.
 for customHost in customHostnames {
     if customHost != "" {
         if !adServerHostnames.contains(customHost) {
