@@ -179,7 +179,7 @@ if antiAdBlockElementsEnabled == true {
 // MARK: FILTER: CSS Elements Ads
 /// Remove CSS Elements for ads
 var cssElementsAds: String = ""
-let cssElementsAdsFile = "BlockData/css-elements-ads.txt"
+let cssElementsAdsFile = "BlockData/custom-css-elements-ads.txt"
 
 if cssElementsAdsEnabled == true {
 
@@ -202,7 +202,7 @@ if cssElementsAdsEnabled == true {
 // MARK: FILTER: CSS Element Social
 /// Remove CSS Elements for social buttons
 var cssElementsSocial: String = ""
-let cssElementsSocialFile = "BlockData/css-elements-social.txt"
+let cssElementsSocialFile = "BlockData/custom-css-elements-social.txt"
 
 if cssElementsSocialEnabled == true {
 
