@@ -7,16 +7,16 @@ The project is in active development. Basic blocking is working fine but the fil
 ### Filters
 Ultimate AdBlock uses a couple of filters;
 
-- Hostnames
-⋅⋅* pgl.yoyo.org Adserver hostnames: [https://pgl.yoyo.org/adservers/](https://pgl.yoyo.org/adservers/)
-⋅⋅* Custom hostnames
+#### Hostnames
+- [pgl.yoyo.org Adserver hostnames](https://pgl.yoyo.org/adservers/)
+- Custom hostnames
 
-- CSS Element Hiding
-⋅⋅* Fanboys Social Blocklist (General Element Hiding Rules): [https://easylist-downloads.adblockplus.org/fanboy-social.txt](https://easylist-downloads.adblockplus.org/fanboy-social.txt)
-⋅⋅* Custom Anti AdBlock CSS elements
-⋅⋅* Custom Ads CSS elements
-⋅⋅* Custom Social sharing CSS elements
-⋅⋅* Javascript files
+#### CSS Element Hiding
+- [Fanboys Social Blocklist (General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/fanboy-social.txt)
+- Custom Anti AdBlock CSS elements
+- Custom Ads CSS elements
+- Custom Social sharing CSS elements
+- Javascript files
 
 All block data is stored in .txt files. Some have different formats. For example the pgl.yoyo adservers are all on one line, seperated with a ,.
 The malwaredomainlist.txt has a different format; 127.0.0.1 examplehost.com. The update-filters.swift script removes the 127.0.0.1 part so all that remains are the hosts, seperated with a ,.
