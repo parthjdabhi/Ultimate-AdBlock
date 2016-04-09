@@ -25,11 +25,24 @@ The custom-hostnames.txt is also different. Every host is stored on a new line, 
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
 Run the script again to generate fresh filters.
 
+#### Number of filters (as of 9 April 2016)
+
+-- Hostnames:
+yoyo pgl adserver hostnames: 2423
+Malware Domains: 0
+Custom hostnames: 64
+
+-- CSS Elements Hiding & JavaScripts:
+CSS Elements (Custom) - Ads: 62
+CSS Elements (Custom) - Social: 21
+CSS Elements (Custom) - Anti AdBlock: 6
+CSS Elements - Social Fanboys List: 6705
+Javascript files: 27
+
 ## ToDo
 
 - malwaredomainlist filters
 - privacy trackers filter
-- fanboys social sharing list
 - converting easylists to this new format
 - OSX extension
 - iOS Interface to enable/disable filters
