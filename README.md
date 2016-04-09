@@ -4,7 +4,7 @@ Blocks hostnames and css items.
 
 The project is in active development. Basic blocking is working fine but the filters.json needs a couple of more filters before it is a good replacement for the popular existing ones.
 
-### Filters
+## Filters
 Ultimate AdBlock uses a couple of filters;
 
 #### Hostnames
@@ -12,7 +12,7 @@ Ultimate AdBlock uses a couple of filters;
 - Custom hostnames
 
 #### CSS Element Hiding
-- [Fanboys Social Blocklist (General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/fanboy-social.txt)
+- [Fanboys Social Blocklist (Section: General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/fanboy-social.txt)
 - Custom Anti AdBlock CSS elements
 - Custom Ads CSS elements
 - Custom Social sharing CSS elements
@@ -25,7 +25,7 @@ The custom-hostnames.txt is also different. Every host is stored on a new line, 
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
 Run the script again to generate fresh filters.
 
-### ToDo
+## ToDo
 
 - malwaredomainlist filters
 - privacy trackers filter
@@ -34,7 +34,7 @@ Run the script again to generate fresh filters.
 - OSX extension
 - iOS Interface to enable/disable filters
 
-### How to install
+## How to install
 
 - Download the project
 - Build the project on your device
@@ -43,7 +43,7 @@ Run the script again to generate fresh filters.
 
 This Content Blocking API is only available on 64 bit devices (iPhone 5s and newer, iPad Air and newer)
 
-### How to update the filters
+## How to update the filters
 
 Updating the blocking filters is easy:
 
@@ -53,18 +53,18 @@ Updating the blocking filters is easy:
 
 filters.json in the AdBlockerExtension is now updated. Open the app on your device to load the new filters into Safari.
 
-### Contribute
+## Contribute
 
 If you want to contribute to this project please consider opening an issue of a pull request!
 
-### About the Safari Content Blocker API
+## About the Safari Content Blocker API
 
 For more info about this awesome API please check;
 
 - [https://developer.apple.com/videos/play/wwdc2015/511/](https://developer.apple.com/videos/play/wwdc2015/511/) - WWDC 2015 session
 - [https://webkit.org/blog/3476/content-blockers-first-look/](https://webkit.org/blog/3476/content-blockers-first-look/) - Introduction to WebKit Content Blockers, First Look
 
-### License
+## License
 The MIT License (MIT)
 
 Copyright (c) 2016 Eric Horstmanshof
