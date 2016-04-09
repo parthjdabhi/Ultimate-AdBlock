@@ -7,11 +7,11 @@ The project is in active development. Basic blocking is working fine but the fil
 ## Filters
 Ultimate AdBlock uses a couple of filters;
 
-#### Hostnames
+### Hostnames
 - [pgl.yoyo.org Adserver hostnames](https://pgl.yoyo.org/adservers/)
 - Custom hostnames
 
-#### CSS Element Hiding
+### CSS Element Hiding
 - [Fanboys Social Blocklist (Section: General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/fanboy-social.txt)
 - Custom Anti AdBlock CSS elements
 - Custom Ads CSS elements
@@ -25,19 +25,19 @@ The custom-hostnames.txt is also different. Every host is stored on a new line, 
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
 Run the script again to generate fresh filters.
 
-#### Number of filters (as of 9 April 2016)
+### Number of filters (as of 9 April 2016)
 
--- Hostnames:
-yoyo pgl adserver hostnames: 2423
-Malware Domains: 0
-Custom hostnames: 64
+#### Hostnames:
+- yoyo pgl adserver hostnames: 2423
+- Malware Domains: 0
+- Custom hostnames: 64
 
--- CSS Elements Hiding & JavaScripts:
-CSS Elements (Custom) - Ads: 62
-CSS Elements (Custom) - Social: 21
-CSS Elements (Custom) - Anti AdBlock: 6
-CSS Elements - Social Fanboys List: 6705
-Javascript files: 27
+#### CSS Elements Hiding & JavaScripts:
+- CSS Elements (Custom) - Ads: 62
+- CSS Elements (Custom) - Social: 21
+- CSS Elements (Custom) - Anti AdBlock: 6
+- CSS Elements - Social Fanboys List: 6705
+- Javascript files: 27
 
 ## ToDo
 
