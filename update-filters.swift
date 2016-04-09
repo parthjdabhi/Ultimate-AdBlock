@@ -37,6 +37,9 @@ let antiAdBlockElementsEnabled = true
 /// CSS Elements Ads
 let cssElementsAdsEnabled = true
 
+/// CSS Elements Ads Easylist
+let cssElementsAdsEasyListEnabled = true
+
 /// CSS Elements Social
 let cssElementsSocialEnabled = true
 
@@ -253,6 +256,37 @@ if cssElementsSocialFanboyEnabled == true {
     
 }
 
+// MARK: FILTER: CSS Elements Easylist
+/// Remove CSS Elements for ads
+/// !!!
+/// All credit for this data:
+/// Section: General element hiding rules
+/// URL:
+/// !!!
+
+var cssElementsAdsEasyList: String = ""
+let cssElementsAdsEasyListFile = "BlockData/css-elements-ads-easylist.txt"
+
+if cssElementsAdsEasyListEnabled == true {
+    
+    do {
+        
+        let contents = try NSString(contentsOfFile: cssElementsAdsEasyListFile, usedEncoding: nil) as String
+        
+        if contents.characters.count > 0 {
+            
+            cssElementsAdsEasyList = (contents as String).stringByReplacingOccurrencesOfString("\n", withString: ",")
+            cssElementsAdsEasyList = (cssElementsAdsEasyList as String).stringByReplacingOccurrencesOfString("###", withString: "#")
+            cssElementsAdsEasyList = (cssElementsAdsEasyList as String).stringByReplacingOccurrencesOfString("##.", withString: ".")
+            
+        }
+        
+    } catch {
+        print("Can't read the \(cssElementsAdsEasyListFile) file.")
+    }
+    
+}
+
 // MARK: FILTER: Javascripts
 /// Block the following javascripts
 var javascriptElements = [String]()
@@ -278,6 +312,7 @@ if javascriptElementsEnabled == true {
 
 /// Statistics
 let cssElementsAdsCount = cssElementsAds.componentsSeparatedByString(",").count
+let cssElementsAdsEasyListCount = cssElementsAdsEasyList.componentsSeparatedByString(",").count
 let cssElementsSocialCount = cssElementsSocial.componentsSeparatedByString(",").count
 let antiAdBlockElementsCount = antiAdBlockElements.componentsSeparatedByString(",").count
 let cssElementsSocialFanboyCount = cssElementsSocialFanboy.componentsSeparatedByString(",").count
@@ -296,6 +331,7 @@ print("-- CSS Elements Hiding & JavaScripts:")
 print("CSS Elements (Custom) - Ads: \(cssElementsAdsCount)")
 print("CSS Elements (Custom) - Social: \(cssElementsSocialCount)")
 print("CSS Elements (Custom) - Anti AdBlock: \(antiAdBlockElementsCount)")
+print("CSS Elements - Ads EasyList: \(cssElementsAdsEasyListCount)")
 print("CSS Elements - Social Fanboys List: \(cssElementsSocialFanboyCount)")
 print("Javascript files: \(javascriptElements.count)")
 print("")
@@ -339,6 +375,10 @@ filters.append(antiAdBlockElementsBlock)
 /// Ads CSS Elements
 let cssElementsAdsBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsAds)" ] ]
 filters.append(cssElementsAdsBlock)
+
+/// Ads CSS Elements EasyList
+let cssElementsAdsEasyListBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsAdsEasyList)" ] ]
+filters.append(cssElementsAdsEasyListBlock)
 
 /// Social CSS Elements
 let cssElementsSocialBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsSocial)" ] ]
