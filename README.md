@@ -13,6 +13,7 @@ Ultimate AdBlock uses a couple of filters;
 
 ### CSS Element Hiding
 - [Fanboys Social Blocklist (Section: General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/fanboy-social.txt)
+- [EasyList Blocklist (Section: General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/easylist.txt)
 - Custom Anti AdBlock CSS elements
 - Custom Ads CSS elements
 - Custom Social sharing CSS elements
@@ -30,12 +31,13 @@ Run the script again to generate fresh filters.
 #### Hostnames:
 - yoyo pgl adserver hostnames: 2423
 - Malware Domains: 0
-- Custom hostnames: 64
+- Custom hostnames: 65
 
 #### CSS Elements Hiding & JavaScripts:
 - CSS Elements (Custom) - Ads: 62
 - CSS Elements (Custom) - Social: 21
 - CSS Elements (Custom) - Anti AdBlock: 6
+- CSS Elements - Ads EasyList: 16318
 - CSS Elements - Social Fanboys List: 6705
 - Javascript files: 27
 
@@ -43,7 +45,6 @@ Run the script again to generate fresh filters.
 
 - malwaredomainlist filters
 - privacy trackers filter
-- converting easylists to this new format
 - OSX extension
 - iOS Interface to enable/disable filters
 

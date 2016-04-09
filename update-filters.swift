@@ -259,7 +259,7 @@ if cssElementsSocialFanboyEnabled == true {
 // MARK: FILTER: CSS Elements Easylist
 /// Remove CSS Elements for ads
 /// !!!
-/// All credit for this data:
+/// All credit for this data: https://easylist-downloads.adblockplus.org/easylist.txt
 /// Section: General element hiding rules
 /// URL:
 /// !!!
