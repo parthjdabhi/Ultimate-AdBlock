@@ -225,7 +225,8 @@ if cssElementsSocialEnabled == true {
 // MARK: FILTER: CSS Elements Social Fanboy
 /// Remove CSS Elements for social buttons
 /// !!!
-/// All credit for this data: 
+/// All credit for this data: https://easylist-downloads.adblockplus.org/fanboy-social.txt
+/// Section: General element hiding rules
 /// URL:
 /// !!!
 
