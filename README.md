@@ -41,6 +41,8 @@ Run the script again to generate fresh filters.
 - CSS Elements - Social Fanboys List: 6.705
 - Javascript files: 27
 
+Total: 25.627 / 50.000
+
 ## ToDo
 
 - malwaredomainlist filters

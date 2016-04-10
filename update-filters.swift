@@ -52,6 +52,9 @@ let javascriptElementsEnabled = true
 /// Complete filters block
 var filters = [[String:[String:String]]]()
 
+print("------------------")
+print("Started generating the filters.json file.")
+
 // MARK: FILTER: Default yoyo adservers
 
 /// pgl.yoyo adservers
@@ -311,24 +314,28 @@ if javascriptElementsEnabled == true {
 }
 
 /// Statistics
+let adServerHostnamesCount = adServerHostnames.count
+let malwareHostnamesCount = malwareHostnames.count
+let customHostnamesCount = customHostnames.count
+
 let cssElementsAdsCount = cssElementsAds.componentsSeparatedByString(",").count
 let cssElementsAdsEasyListCount = cssElementsAdsEasyList.componentsSeparatedByString(",").count
 let cssElementsSocialCount = cssElementsSocial.componentsSeparatedByString(",").count
 let antiAdBlockElementsCount = antiAdBlockElements.componentsSeparatedByString(",").count
 let cssElementsSocialFanboyCount = cssElementsSocialFanboy.componentsSeparatedByString(",").count
 
+let javascriptElementsCount = javascriptElements.count
+
 // MARK: Iterating over the filters and add them to the blockList array.
 
 var numberFormatter = NSNumberFormatter()
 numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
 
-print("------------------")
-print("Started generating the filters.json file.")
 print("")
 print("-- Hostnames:")
-print("yoyo.pgl.org AdServer hostnames: \(numberFormatter.stringFromNumber(adServerHostnames.count)!)")
-print("Malwaredomainlist: \(numberFormatter.stringFromNumber(malwareHostnames.count)!)")
-print("Custom hostnames: \(numberFormatter.stringFromNumber(customHostnames.count)!)")
+print("yoyo.pgl.org AdServer hostnames: \(numberFormatter.stringFromNumber(adServerHostnamesCount)!)")
+print("Malwaredomainlist: \(numberFormatter.stringFromNumber(malwareHostnamesCount)!)")
+print("Custom hostnames: \(numberFormatter.stringFromNumber(customHostnamesCount)!)")
 print("")
 print("-- CSS Elements Hiding & JavaScripts:")
 print("CSS Elements (Custom) - Ads: \(numberFormatter.stringFromNumber(cssElementsAdsCount)!)")
@@ -336,7 +343,12 @@ print("CSS Elements (Custom) - Social: \(numberFormatter.stringFromNumber(cssEle
 print("CSS Elements (Custom) - Anti AdBlock: \(numberFormatter.stringFromNumber(antiAdBlockElementsCount)!)")
 print("CSS Elements - Ads EasyList: \(numberFormatter.stringFromNumber(cssElementsAdsEasyListCount)!)")
 print("CSS Elements - Social Fanboys List: \(numberFormatter.stringFromNumber(cssElementsSocialFanboyCount)!)")
-print("Javascript files: \(numberFormatter.stringFromNumber(javascriptElements.count)!)")
+print("Javascript files: \(numberFormatter.stringFromNumber(javascriptElementsCount)!)")
+print("")
+
+let totalBlockItems = adServerHostnamesCount + malwareHostnamesCount + customHostnamesCount + cssElementsAdsCount + cssElementsAdsEasyListCount + cssElementsSocialCount + antiAdBlockElementsCount + cssElementsSocialFanboyCount + javascriptElementsCount
+
+print("Total: \(numberFormatter.stringFromNumber(totalBlockItems)!) / 50.000")
 print("")
 
 /// Iterate over every hostname and add it to the block list.
