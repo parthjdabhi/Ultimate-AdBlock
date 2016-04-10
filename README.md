@@ -8,16 +8,16 @@ The project is in active development. Basic blocking is working fine but the fil
 Ultimate AdBlock uses a couple of filters;
 
 ### Hostnames
-- [pgl.yoyo.org Adserver hostnames](https://pgl.yoyo.org/adservers/)
-- Custom hostnames
+- [pgl.yoyo.org Adserver hostnames](https://pgl.yoyo.org/adservers/), updated 10 April 2016
+- Custom hostnames, updated 10 April 2016
 
 ### CSS Element Hiding
-- [Fanboys Social Blocklist (Section: General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/fanboy-social.txt)
-- [EasyList Blocklist (Section: General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/easylist.txt)
-- Custom Anti AdBlock CSS elements
-- Custom Ads CSS elements
-- Custom Social sharing CSS elements
-- Javascript files
+- [Fanboys Social Blocklist (Section: General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/fanboy-social.txt), updated 10 April 2016
+- [EasyList Blocklist (Section: General Element Hiding Rules)](https://easylist-downloads.adblockplus.org/easylist.txt), updated 10 April 2016
+- Custom Anti AdBlock CSS elements, updated 10 April 2016
+- Custom Ads CSS elements, updated 10 April 2016
+- Custom Social sharing CSS elements, updated 10 April 2016
+- Javascript files, updated 10 April 2016
 
 All block data is stored in .txt files. Some have different formats. For example the pgl.yoyo adservers are all on one line, seperated with a ,.
 The malwaredomainlist.txt has a different format; 127.0.0.1 examplehost.com. The update-filters.swift script removes the 127.0.0.1 part so all that remains are the hosts, seperated with a ,.
@@ -26,25 +26,26 @@ The custom-hostnames.txt is also different. Every host is stored on a new line, 
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
 Run the script again to generate fresh filters.
 
-### Number of filters (as of 9 April 2016)
+### Number of filters (as of 10 April 2016)
 
 #### Hostnames:
-- yoyo pgl adserver hostnames: 2423
-- Malware Domains: 0
+- yoyo.pgl.org AdServer hostnames: 2.423
+- Malwaredomainlist: 0
 - Custom hostnames: 65
 
 #### CSS Elements Hiding & JavaScripts:
 - CSS Elements (Custom) - Ads: 62
 - CSS Elements (Custom) - Social: 21
 - CSS Elements (Custom) - Anti AdBlock: 6
-- CSS Elements - Ads EasyList: 16318
-- CSS Elements - Social Fanboys List: 6705
+- CSS Elements - Ads EasyList: 16.318
+- CSS Elements - Social Fanboys List: 6.705
 - Javascript files: 27
 
 ## ToDo
 
 - malwaredomainlist filters
 - privacy trackers filter
+- Check for duplicate hostnames and remove them
 - OSX extension
 - iOS Interface to enable/disable filters
 

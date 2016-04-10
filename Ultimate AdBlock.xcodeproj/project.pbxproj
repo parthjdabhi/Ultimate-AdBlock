@@ -235,8 +235,8 @@
 		07D46FB31CB6982B0044137A /* CSS Elements Blocking */ = {
 			isa = PBXGroup;
 			children = (
-				07D126DF1CB90D5600842B4E /* css-elements-ads-easylist.txt */,
 				07D46FAF1CB65BF90044137A /* fanboys-social-blocking-list.txt */,
+				07D126DF1CB90D5600842B4E /* css-elements-ads-easylist.txt */,
 			);
 			name = "CSS Elements Blocking";
 			sourceTree = "<group>";
