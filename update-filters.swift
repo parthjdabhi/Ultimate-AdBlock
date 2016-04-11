@@ -90,6 +90,8 @@ if adServerHostnamesEnabled == true {
 /// !!!
 var malwareHostnames = [String]()
 let malwareHostnamesFile = "BlockData/malwaredomainlist.txt"
+var malwareHostnamesDuplicates = 0
+var malwareHostnamesIncorrectFormat = 0
 
 if malwareHostnamesEnabled == true {
 
@@ -102,13 +104,32 @@ if malwareHostnamesEnabled == true {
             let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
             
             for host in hosts {
-                malwareHostnames.append(host.substringFromIndex(host.startIndex.advancedBy(10)))
+                
+                if host.rangeOfString("127.0.0.1") != nil{
+                
+                    let trimmedHost = host.substringFromIndex(host.startIndex.advancedBy(10))
+                    
+                    if (!adServerHostnames.contains(trimmedHost)) {
+                        malwareHostnames.append(trimmedHost)
+                    } else {
+                        malwareHostnamesDuplicates += 1
+                    }
+                } else {
+                    malwareHostnamesIncorrectFormat += 1
+                }
             }
-            
         }
         
     } catch {
         print("Can't read the \(malwareHostnamesFile) file.")
+    }
+    
+    if malwareHostnamesDuplicates > 0 {
+        print("Found \(malwareHostnamesDuplicates) duplicates in \(malwareHostnamesFile). They are listed in another host file, so these are ignored.")
+    }
+    
+    if malwareHostnamesIncorrectFormat > 0 {
+        print("Found \(malwareHostnamesIncorrectFormat) hosts in \(malwareHostnamesFile) that has an incorrect format.")
     }
     
 }
