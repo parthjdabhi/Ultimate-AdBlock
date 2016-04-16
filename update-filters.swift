@@ -25,6 +25,9 @@ import Foundation
 /// Default pgl.yoyo adservers
 let adServerHostnamesEnabled = true
 
+/// Easylist adservers
+var easylist_adserversEnabled = true
+
 /// Malwaredomains
 let malwareHostnamesEnabled = true
 
@@ -56,7 +59,6 @@ print("------------------")
 print("Started generating the filters.json file.")
 
 // MARK: FILTER: Default yoyo adservers
-
 /// pgl.yoyo adservers
 /// !!!
 /// All credit for these hostnames: https://pgl.yoyo.org/adservers/
@@ -78,6 +80,72 @@ if adServerHostnamesEnabled == true {
         
     } catch {
         print("Can't read the \(adServerHostnamesFile) file.")
+    }
+    
+}
+
+/// Easylist
+///!---------------------------Third-party advertisers---------------------------!
+///! *** easylist:easylist/easylist_adservers.txt ***
+/// !!!
+/// All credit for these hostnames: https://easylist-downloads.adblockplus.org/easylist.txt
+/// !!!
+var easylist_adservers = [String]()
+let easylist_adserversFile = "BlockData/easylist_adservers.txt"
+var easylist_adserversDuplicates = 0
+
+if easylist_adserversEnabled == true {
+    
+    do {
+        
+        let contents = try NSString(contentsOfFile: easylist_adserversFile, usedEncoding: nil) as String
+        
+        if contents.characters.count > 0 {
+            
+            let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            
+            for host in hosts {
+                
+                if host.rangeOfString("||") != nil{
+                    
+                    var trimmedHost = host
+                    
+                    trimmedHost = trimmedHost.stringByReplacingOccurrencesOfString("||", withString: "")
+                    
+                    /// Remove all special characters so all that remains are the hosts
+                    if let dotRange = trimmedHost.rangeOfString("^") {
+                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    }
+                    
+                    if let dotRange = trimmedHost.rangeOfString("$") {
+                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    }
+                    
+                    if let dotRange = trimmedHost.rangeOfString("*") {
+                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    }
+                    
+                    /// Check for duplicates and add the host.
+                    if(!easylist_adservers.contains(trimmedHost)) {
+                        if (!adServerHostnames.contains(trimmedHost)) {
+                            easylist_adservers.append(trimmedHost)
+                        } else {
+                            easylist_adserversDuplicates += 1
+                        }
+                        
+                    }
+                    
+                }
+            }
+            
+        }
+        
+    } catch {
+        print("Can't read the \(easylist_adserversFile) file.")
+    }
+    
+    if easylist_adserversDuplicates > 0 {
+        print("Found \(easylist_adserversDuplicates) duplicates in \(easylist_adserversFile). They are listed in another host file, so these are ignored.")
     }
     
 }
@@ -172,8 +240,22 @@ if customHostnamesEnabled == true {
         
         if contents.characters.count > 0 {
             
+            /*
+            
+            if !adServerHostnames.contains(customHost) {
+                
+                let block = ["trigger" : ["url-filter" : String(customHost) ], "action" : [ "type" : "block" ] ]
+                //filters.append(block)
+            } else {
+                print("*********************")
+                print("* WARNING: \(customHost) already exists in the default adserver hostname list.\n* This entry will be ignored. You can delete this custom hostname from the list.")
+                print("*********************")
+                print("")
+            }
+            
             customHostnames = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
-        
+        */
+            // TODO: Fix custom hostnames duplicate warning
         }
         
     } catch {
@@ -336,6 +418,7 @@ if javascriptElementsEnabled == true {
 
 /// Statistics
 let adServerHostnamesCount = adServerHostnames.count
+let easylist_adserversCount = easylist_adservers.count
 let malwareHostnamesCount = malwareHostnames.count
 let customHostnamesCount = customHostnames.count
 
@@ -355,6 +438,7 @@ numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
 print("")
 print("-- Hostnames:")
 print("yoyo.pgl.org AdServer hostnames: \(numberFormatter.stringFromNumber(adServerHostnamesCount)!)")
+print("Easylist hostnames: \(numberFormatter.stringFromNumber(easylist_adserversCount)!)")
 print("Malwaredomainlist: \(numberFormatter.stringFromNumber(malwareHostnamesCount)!)")
 print("Custom hostnames: \(numberFormatter.stringFromNumber(customHostnamesCount)!)")
 print("")
@@ -367,13 +451,21 @@ print("CSS Elements - Social Fanboys List: \(numberFormatter.stringFromNumber(cs
 print("Javascript files: \(numberFormatter.stringFromNumber(javascriptElementsCount)!)")
 print("")
 
-let totalBlockItems = adServerHostnamesCount + malwareHostnamesCount + customHostnamesCount + cssElementsAdsCount + cssElementsAdsEasyListCount + cssElementsSocialCount + antiAdBlockElementsCount + cssElementsSocialFanboyCount + javascriptElementsCount
+let totalBlockItems = adServerHostnamesCount + easylist_adserversCount + malwareHostnamesCount + customHostnamesCount + cssElementsAdsCount + cssElementsAdsEasyListCount + cssElementsSocialCount + antiAdBlockElementsCount + cssElementsSocialFanboyCount + javascriptElementsCount
 
 print("Total: \(numberFormatter.stringFromNumber(totalBlockItems)!) / 50.000")
 print("")
 
 /// Iterate over every hostname and add it to the block list.
 for host in adServerHostnames {
+    if host != "" {
+        let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
+        //filters.append(block)
+    }
+}
+
+/// Iterate over every hostname and add it to the block list.
+for host in easylist_adservers {
     if host != "" {
         let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
         filters.append(block)
@@ -384,50 +476,43 @@ for host in adServerHostnames {
 for host in malwareHostnames {
     if host != "" {
         let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
-        filters.append(block)
+        //filters.append(block)
     }
 }
 
 /// Iterate over every custom hostname and add it to the block list.
 for customHost in customHostnames {
     if customHost != "" {
-        if !adServerHostnames.contains(customHost) {
         
         let block = ["trigger" : ["url-filter" : String(customHost) ], "action" : [ "type" : "block" ] ]
-            filters.append(block)
-        } else {
-            print("*********************")
-            print("* WARNING: \(customHost) already exists in the default adserver hostname list.\n* This entry will be ignored. You can delete this custom hostname from the list.")
-            print("*********************")
-            print("")
-        }
+        //filters.append(block)
     }
 }
 
 /// Anti Adblock Elements
 let antiAdBlockElementsBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(antiAdBlockElements)" ] ]
-filters.append(antiAdBlockElementsBlock)
+//filters.append(antiAdBlockElementsBlock)
 
 /// Ads CSS Elements
 let cssElementsAdsBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsAds)" ] ]
-filters.append(cssElementsAdsBlock)
+//filters.append(cssElementsAdsBlock)
 
 /// Ads CSS Elements EasyList
 let cssElementsAdsEasyListBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsAdsEasyList)" ] ]
-filters.append(cssElementsAdsEasyListBlock)
+//filters.append(cssElementsAdsEasyListBlock)
 
 /// Social CSS Elements
 let cssElementsSocialBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsSocial)" ] ]
-filters.append(cssElementsSocialBlock)
+//filters.append(cssElementsSocialBlock)
 
 /// Social CSS Elements Fanboy List
 let cssElementsSocialFanboyBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsSocialFanboy)" ] ]
-filters.append(cssElementsSocialFanboyBlock)
+//filters.append(cssElementsSocialFanboyBlock)
 
 /// Javascripts
 for javascriptElement in javascriptElements {
     let javascriptElementBlock = ["trigger" : ["url-filter" : "\(javascriptElement)" ], "action" : [ "type" : "block" ] ]
-    filters.append(javascriptElementBlock)
+    //filters.append(javascriptElementBlock)
 }
 
 // MARK: Generate json file.

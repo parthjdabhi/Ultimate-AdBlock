@@ -27,6 +27,7 @@
 		07673F141CB2A517003E718A /* custom-css-elements-antiadblock.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F121CB2A517003E718A /* custom-css-elements-antiadblock.txt */; };
 		07673F161CB2E54B003E718A /* malwaredomainlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F151CB2E54B003E718A /* malwaredomainlist.txt */; };
 		07673F171CB2E54B003E718A /* malwaredomainlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F151CB2E54B003E718A /* malwaredomainlist.txt */; };
+		077341801CC25AF80085830D /* easylist_adservers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0773417F1CC25AF80085830D /* easylist_adservers.txt */; };
 		07D126E01CB90D5600842B4E /* css-elements-ads-easylist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D126DF1CB90D5600842B4E /* css-elements-ads-easylist.txt */; };
 		07D46FA51CB52C130044137A /* custom-css-elements-ads.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA21CB52C130044137A /* custom-css-elements-ads.txt */; };
 		07D46FA61CB52C130044137A /* custom-css-elements-social.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA31CB52C130044137A /* custom-css-elements-social.txt */; };
@@ -85,6 +86,7 @@
 		07673F121CB2A517003E718A /* custom-css-elements-antiadblock.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "custom-css-elements-antiadblock.txt"; path = "BlockData/custom-css-elements-antiadblock.txt"; sourceTree = SOURCE_ROOT; };
 		07673F151CB2E54B003E718A /* malwaredomainlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = malwaredomainlist.txt; path = BlockData/malwaredomainlist.txt; sourceTree = SOURCE_ROOT; };
 		07673F181CB3C39D003E718A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		0773417F1CC25AF80085830D /* easylist_adservers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = easylist_adservers.txt; path = BlockData/easylist_adservers.txt; sourceTree = SOURCE_ROOT; };
 		07D126DF1CB90D5600842B4E /* css-elements-ads-easylist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "css-elements-ads-easylist.txt"; path = "BlockData/css-elements-ads-easylist.txt"; sourceTree = SOURCE_ROOT; };
 		07D46FA21CB52C130044137A /* custom-css-elements-ads.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "custom-css-elements-ads.txt"; path = "BlockData/custom-css-elements-ads.txt"; sourceTree = SOURCE_ROOT; };
 		07D46FA31CB52C130044137A /* custom-css-elements-social.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "custom-css-elements-social.txt"; path = "BlockData/custom-css-elements-social.txt"; sourceTree = SOURCE_ROOT; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				07673F0D1CB2A215003E718A /* yoyo-adservers.txt */,
+				0773417F1CC25AF80085830D /* easylist_adservers.txt */,
 				07673F151CB2E54B003E718A /* malwaredomainlist.txt */,
 				07D46FA41CB52C130044137A /* easyprivacy.txt */,
 			);
@@ -325,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				077341801CC25AF80085830D /* easylist_adservers.txt in Resources */,
 				07D126E01CB90D5600842B4E /* css-elements-ads-easylist.txt in Resources */,
 				07D46FA51CB52C130044137A /* custom-css-elements-ads.txt in Resources */,
 				07673F161CB2E54B003E718A /* malwaredomainlist.txt in Resources */,
