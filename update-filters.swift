@@ -26,7 +26,7 @@ import Foundation
 let adServerHostnamesEnabled = true
 
 /// Easylist adservers
-var easylist_adserversEnabled = false
+var easylist_adserversEnabled = true
 
 /// Malwaredomains
 let malwareHostnamesEnabled = true
@@ -448,7 +448,7 @@ print("")
 for host in adServerHostnames {
     if host != "" {
         let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
-        //filters.append(block)
+        filters.append(block)
     }
 }
 
@@ -464,7 +464,7 @@ for host in easylist_adservers {
 for host in malwareHostnames {
     if host != "" {
         let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
-        //filters.append(block)
+        filters.append(block)
     }
 }
 
@@ -473,34 +473,34 @@ for customHost in customHostnames {
     if customHost != "" {
         
         let block = ["trigger" : ["url-filter" : String(customHost) ], "action" : [ "type" : "block" ] ]
-        //filters.append(block)
+        filters.append(block)
     }
 }
 
 /// Anti Adblock Elements
 let antiAdBlockElementsBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(antiAdBlockElements)" ] ]
-//filters.append(antiAdBlockElementsBlock)
+filters.append(antiAdBlockElementsBlock)
 
 /// Ads CSS Elements
 let cssElementsAdsBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsAds)" ] ]
-//filters.append(cssElementsAdsBlock)
+filters.append(cssElementsAdsBlock)
 
 /// Ads CSS Elements EasyList
 let cssElementsAdsEasyListBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsAdsEasyList)" ] ]
-//filters.append(cssElementsAdsEasyListBlock)
+filters.append(cssElementsAdsEasyListBlock)
 
 /// Social CSS Elements
 let cssElementsSocialBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsSocial)" ] ]
-//filters.append(cssElementsSocialBlock)
+filters.append(cssElementsSocialBlock)
 
 /// Social CSS Elements Fanboy List
 let cssElementsSocialFanboyBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsSocialFanboy)" ] ]
-//filters.append(cssElementsSocialFanboyBlock)
+filters.append(cssElementsSocialFanboyBlock)
 
 /// Javascripts
 for javascriptElement in javascriptElements {
     let javascriptElementBlock = ["trigger" : ["url-filter" : "\(javascriptElement)" ], "action" : [ "type" : "block" ] ]
-    //filters.append(javascriptElementBlock)
+    filters.append(javascriptElementBlock)
 }
 
 // MARK: Generate json file.
