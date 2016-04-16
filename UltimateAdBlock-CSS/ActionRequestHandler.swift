@@ -1,9 +1,9 @@
 //
 //  ActionRequestHandler.swift
-//  AdBlockerExtension
+//  UltimateAdBlock-CSS
 //
-//  Created by Eric Horstmanshof on 25-11-15.
-//  Copyright © 2015 Arrow Webprojects. All rights reserved.
+//  Created by Eric Horstmanshof on 16-04-16.
+//  Copyright © 2016 Arrow Webprojects. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ import MobileCoreServices
 class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
 
     func beginRequestWithExtensionContext(context: NSExtensionContext) {
-        let attachment = NSItemProvider(contentsOfURL: NSBundle.mainBundle().URLForResource("filters", withExtension: "json"))!
+        let attachment = NSItemProvider(contentsOfURL: NSBundle.mainBundle().URLForResource("blockerList", withExtension: "json"))!
     
         let item = NSExtensionItem()
         item.attachments = [attachment]

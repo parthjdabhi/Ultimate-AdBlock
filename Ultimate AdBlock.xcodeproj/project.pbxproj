@@ -12,22 +12,21 @@
 		0704A27C1C0643F700FF14B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0704A27A1C0643F700FF14B0 /* Main.storyboard */; };
 		0704A27E1C0643F700FF14B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0704A27D1C0643F700FF14B0 /* Assets.xcassets */; };
 		0704A2811C0643F700FF14B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0704A27F1C0643F700FF14B0 /* LaunchScreen.storyboard */; };
-		0704A2911C06443800FF14B0 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0704A2901C06443800FF14B0 /* ActionRequestHandler.swift */; };
-		0704A2951C06443800FF14B0 /* AdBlockerExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0704A28C1C06443800FF14B0 /* AdBlockerExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		071DFF561C0A33A9006BB9E5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 071DFF581C0A33A9006BB9E5 /* Localizable.strings */; };
 		071DFF5B1C0B06A9006BB9E5 /* FiltersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071DFF5A1C0B06A9006BB9E5 /* FiltersTVC.swift */; };
 		071DFF5D1C0B073C006BB9E5 /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071DFF5C1C0B073C006BB9E5 /* SettingsTVC.swift */; };
-		071DFF651C0B4C90006BB9E5 /* filters.json in Resources */ = {isa = PBXBuildFile; fileRef = 071DFF641C0B4C90006BB9E5 /* filters.json */; };
 		075B47BF1CA934BC0057E582 /* update-filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B47BE1CA934BC0057E582 /* update-filters.swift */; };
 		07673F0E1CB2A215003E718A /* custom-hostnames.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F0C1CB2A215003E718A /* custom-hostnames.txt */; };
-		07673F0F1CB2A215003E718A /* custom-hostnames.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F0C1CB2A215003E718A /* custom-hostnames.txt */; };
 		07673F101CB2A215003E718A /* yoyo-adservers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F0D1CB2A215003E718A /* yoyo-adservers.txt */; };
-		07673F111CB2A215003E718A /* yoyo-adservers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F0D1CB2A215003E718A /* yoyo-adservers.txt */; };
 		07673F131CB2A517003E718A /* custom-css-elements-antiadblock.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F121CB2A517003E718A /* custom-css-elements-antiadblock.txt */; };
-		07673F141CB2A517003E718A /* custom-css-elements-antiadblock.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F121CB2A517003E718A /* custom-css-elements-antiadblock.txt */; };
 		07673F161CB2E54B003E718A /* malwaredomainlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F151CB2E54B003E718A /* malwaredomainlist.txt */; };
-		07673F171CB2E54B003E718A /* malwaredomainlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F151CB2E54B003E718A /* malwaredomainlist.txt */; };
 		077341801CC25AF80085830D /* easylist_adservers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0773417F1CC25AF80085830D /* easylist_adservers.txt */; };
+		077341881CC286070085830D /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 077341871CC286070085830D /* blockerList.json */; };
+		0773418A1CC286070085830D /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077341891CC286070085830D /* ActionRequestHandler.swift */; };
+		0773418E1CC286070085830D /* UltimateAdBlock-Hosts.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 077341851CC286070085830D /* UltimateAdBlock-Hosts.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		077341991CC286AE0085830D /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 077341981CC286AE0085830D /* blockerList.json */; };
+		0773419B1CC286AE0085830D /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773419A1CC286AE0085830D /* ActionRequestHandler.swift */; };
+		0773419F1CC286AE0085830D /* UltimateAdBlock-CSS.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 077341961CC286AE0085830D /* UltimateAdBlock-CSS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		07D126E01CB90D5600842B4E /* css-elements-ads-easylist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D126DF1CB90D5600842B4E /* css-elements-ads-easylist.txt */; };
 		07D46FA51CB52C130044137A /* custom-css-elements-ads.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA21CB52C130044137A /* custom-css-elements-ads.txt */; };
 		07D46FA61CB52C130044137A /* custom-css-elements-social.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07D46FA31CB52C130044137A /* custom-css-elements-social.txt */; };
@@ -41,12 +40,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0704A2931C06443800FF14B0 /* PBXContainerItemProxy */ = {
+		0773418C1CC286070085830D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0704A2691C0643F700FF14B0 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0704A28B1C06443800FF14B0;
-			remoteInfo = AdBlockerExtension;
+			remoteGlobalIDString = 077341841CC286070085830D;
+			remoteInfo = "UltimateAdBlock-Hosts";
+		};
+		0773419D1CC286AE0085830D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0704A2691C0643F700FF14B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 077341951CC286AE0085830D;
+			remoteInfo = "UltimateAdBlock-CSS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -57,7 +63,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				0704A2951C06443800FF14B0 /* AdBlockerExtension.appex in Embed App Extensions */,
+				0773418E1CC286070085830D /* UltimateAdBlock-Hosts.appex in Embed App Extensions */,
+				0773419F1CC286AE0085830D /* UltimateAdBlock-CSS.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,14 +79,10 @@
 		0704A27D1C0643F700FF14B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0704A2801C0643F700FF14B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0704A2821C0643F700FF14B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0704A28C1C06443800FF14B0 /* AdBlockerExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AdBlockerExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		0704A2901C06443800FF14B0 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
-		0704A2921C06443800FF14B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		071DFF571C0A33A9006BB9E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		071DFF591C0A33B9006BB9E5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		071DFF5A1C0B06A9006BB9E5 /* FiltersTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersTVC.swift; path = Controllers/FiltersTVC.swift; sourceTree = "<group>"; };
 		071DFF5C1C0B073C006BB9E5 /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTVC.swift; path = Controllers/SettingsTVC.swift; sourceTree = "<group>"; };
-		071DFF641C0B4C90006BB9E5 /* filters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = filters.json; sourceTree = "<group>"; };
 		075B47BE1CA934BC0057E582 /* update-filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "update-filters.swift"; sourceTree = SOURCE_ROOT; };
 		07673F0C1CB2A215003E718A /* custom-hostnames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "custom-hostnames.txt"; path = "BlockData/custom-hostnames.txt"; sourceTree = SOURCE_ROOT; };
 		07673F0D1CB2A215003E718A /* yoyo-adservers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "yoyo-adservers.txt"; path = "BlockData/yoyo-adservers.txt"; sourceTree = SOURCE_ROOT; };
@@ -87,6 +90,14 @@
 		07673F151CB2E54B003E718A /* malwaredomainlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = malwaredomainlist.txt; path = BlockData/malwaredomainlist.txt; sourceTree = SOURCE_ROOT; };
 		07673F181CB3C39D003E718A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		0773417F1CC25AF80085830D /* easylist_adservers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = easylist_adservers.txt; path = BlockData/easylist_adservers.txt; sourceTree = SOURCE_ROOT; };
+		077341851CC286070085830D /* UltimateAdBlock-Hosts.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "UltimateAdBlock-Hosts.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		077341871CC286070085830D /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
+		077341891CC286070085830D /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
+		0773418B1CC286070085830D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		077341961CC286AE0085830D /* UltimateAdBlock-CSS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "UltimateAdBlock-CSS.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		077341981CC286AE0085830D /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
+		0773419A1CC286AE0085830D /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
+		0773419C1CC286AE0085830D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07D126DF1CB90D5600842B4E /* css-elements-ads-easylist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "css-elements-ads-easylist.txt"; path = "BlockData/css-elements-ads-easylist.txt"; sourceTree = SOURCE_ROOT; };
 		07D46FA21CB52C130044137A /* custom-css-elements-ads.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "custom-css-elements-ads.txt"; path = "BlockData/custom-css-elements-ads.txt"; sourceTree = SOURCE_ROOT; };
 		07D46FA31CB52C130044137A /* custom-css-elements-social.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "custom-css-elements-social.txt"; path = "BlockData/custom-css-elements-social.txt"; sourceTree = SOURCE_ROOT; };
@@ -108,7 +119,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0704A2891C06443800FF14B0 /* Frameworks */ = {
+		077341821CC286070085830D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		077341931CC286AE0085830D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				0704A2731C0643F700FF14B0 /* Ultimate AdBlock */,
-				0704A28D1C06443800FF14B0 /* AdBlockerExtension */,
+				077341861CC286070085830D /* UltimateAdBlock-Hosts */,
+				077341971CC286AE0085830D /* UltimateAdBlock-CSS */,
 				0704A2721C0643F700FF14B0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,7 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				0704A2711C0643F700FF14B0 /* Ultimate AdBlock.app */,
-				0704A28C1C06443800FF14B0 /* AdBlockerExtension.appex */,
+				077341851CC286070085830D /* UltimateAdBlock-Hosts.appex */,
+				077341961CC286AE0085830D /* UltimateAdBlock-CSS.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,16 +168,6 @@
 				07D46FAC1CB659240044137A /* CHANGELOG.md */,
 			);
 			path = "Ultimate AdBlock";
-			sourceTree = "<group>";
-		};
-		0704A28D1C06443800FF14B0 /* AdBlockerExtension */ = {
-			isa = PBXGroup;
-			children = (
-				0704A2901C06443800FF14B0 /* ActionRequestHandler.swift */,
-				071DFF641C0B4C90006BB9E5 /* filters.json */,
-				0704A2921C06443800FF14B0 /* Info.plist */,
-			);
-			path = AdBlockerExtension;
 			sourceTree = "<group>";
 		};
 		071DFF511C0A332E006BB9E5 /* User Interface */ = {
@@ -190,6 +200,26 @@
 				071DFF581C0A33A9006BB9E5 /* Localizable.strings */,
 			);
 			name = Languages;
+			sourceTree = "<group>";
+		};
+		077341861CC286070085830D /* UltimateAdBlock-Hosts */ = {
+			isa = PBXGroup;
+			children = (
+				077341871CC286070085830D /* blockerList.json */,
+				077341891CC286070085830D /* ActionRequestHandler.swift */,
+				0773418B1CC286070085830D /* Info.plist */,
+			);
+			path = "UltimateAdBlock-Hosts";
+			sourceTree = "<group>";
+		};
+		077341971CC286AE0085830D /* UltimateAdBlock-CSS */ = {
+			isa = PBXGroup;
+			children = (
+				077341981CC286AE0085830D /* blockerList.json */,
+				0773419A1CC286AE0085830D /* ActionRequestHandler.swift */,
+				0773419C1CC286AE0085830D /* Info.plist */,
+			);
+			path = "UltimateAdBlock-CSS";
 			sourceTree = "<group>";
 		};
 		07A806901C590CB200DE4D01 /* Update Filters Script */ = {
@@ -259,28 +289,46 @@
 			buildRules = (
 			);
 			dependencies = (
-				0704A2941C06443800FF14B0 /* PBXTargetDependency */,
+				0773418D1CC286070085830D /* PBXTargetDependency */,
+				0773419E1CC286AE0085830D /* PBXTargetDependency */,
 			);
 			name = "Ultimate AdBlock";
 			productName = "Ultimate AdBlock";
 			productReference = 0704A2711C0643F700FF14B0 /* Ultimate AdBlock.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0704A28B1C06443800FF14B0 /* AdBlockerExtension */ = {
+		077341841CC286070085830D /* UltimateAdBlock-Hosts */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0704A2961C06443800FF14B0 /* Build configuration list for PBXNativeTarget "AdBlockerExtension" */;
+			buildConfigurationList = 0773418F1CC286070085830D /* Build configuration list for PBXNativeTarget "UltimateAdBlock-Hosts" */;
 			buildPhases = (
-				0704A2881C06443800FF14B0 /* Sources */,
-				0704A2891C06443800FF14B0 /* Frameworks */,
-				0704A28A1C06443800FF14B0 /* Resources */,
+				077341811CC286070085830D /* Sources */,
+				077341821CC286070085830D /* Frameworks */,
+				077341831CC286070085830D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AdBlockerExtension;
-			productName = AdBlockerExtension;
-			productReference = 0704A28C1C06443800FF14B0 /* AdBlockerExtension.appex */;
+			name = "UltimateAdBlock-Hosts";
+			productName = "UltimateAdBlock-Hosts";
+			productReference = 077341851CC286070085830D /* UltimateAdBlock-Hosts.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		077341951CC286AE0085830D /* UltimateAdBlock-CSS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 077341A01CC286AE0085830D /* Build configuration list for PBXNativeTarget "UltimateAdBlock-CSS" */;
+			buildPhases = (
+				077341921CC286AE0085830D /* Sources */,
+				077341931CC286AE0085830D /* Frameworks */,
+				077341941CC286AE0085830D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UltimateAdBlock-CSS";
+			productName = "UltimateAdBlock-CSS";
+			productReference = 077341961CC286AE0085830D /* UltimateAdBlock-CSS.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -289,7 +337,7 @@
 		0704A2691C0643F700FF14B0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Arrow Webprojects";
 				TargetAttributes = {
@@ -297,8 +345,12 @@
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = TMFTC54VZX;
 					};
-					0704A28B1C06443800FF14B0 = {
-						CreatedOnToolsVersion = 7.1.1;
+					077341841CC286070085830D = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = TMFTC54VZX;
+					};
+					077341951CC286AE0085830D = {
+						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = TMFTC54VZX;
 					};
 				};
@@ -318,7 +370,8 @@
 			projectRoot = "";
 			targets = (
 				0704A2701C0643F700FF14B0 /* Ultimate AdBlock */,
-				0704A28B1C06443800FF14B0 /* AdBlockerExtension */,
+				077341841CC286070085830D /* UltimateAdBlock-Hosts */,
+				077341951CC286AE0085830D /* UltimateAdBlock-CSS */,
 			);
 		};
 /* End PBXProject section */
@@ -347,15 +400,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0704A28A1C06443800FF14B0 /* Resources */ = {
+		077341831CC286070085830D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07673F111CB2A215003E718A /* yoyo-adservers.txt in Resources */,
-				07673F171CB2E54B003E718A /* malwaredomainlist.txt in Resources */,
-				07673F0F1CB2A215003E718A /* custom-hostnames.txt in Resources */,
-				071DFF651C0B4C90006BB9E5 /* filters.json in Resources */,
-				07673F141CB2A517003E718A /* custom-css-elements-antiadblock.txt in Resources */,
+				077341881CC286070085830D /* blockerList.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		077341941CC286AE0085830D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				077341991CC286AE0085830D /* blockerList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,21 +434,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0704A2881C06443800FF14B0 /* Sources */ = {
+		077341811CC286070085830D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0704A2911C06443800FF14B0 /* ActionRequestHandler.swift in Sources */,
+				0773418A1CC286070085830D /* ActionRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		077341921CC286AE0085830D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0773419B1CC286AE0085830D /* ActionRequestHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0704A2941C06443800FF14B0 /* PBXTargetDependency */ = {
+		0773418D1CC286070085830D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0704A28B1C06443800FF14B0 /* AdBlockerExtension */;
-			targetProxy = 0704A2931C06443800FF14B0 /* PBXContainerItemProxy */;
+			target = 077341841CC286070085830D /* UltimateAdBlock-Hosts */;
+			targetProxy = 0773418C1CC286070085830D /* PBXContainerItemProxy */;
+		};
+		0773419E1CC286AE0085830D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 077341951CC286AE0085830D /* UltimateAdBlock-CSS */;
+			targetProxy = 0773419D1CC286AE0085830D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -538,27 +608,61 @@
 			};
 			name = Release;
 		};
-		0704A2971C06443800FF14B0 /* Debug */ = {
+		077341901CC286070085830D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = AdBlockerExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				INFOPLIST_FILE = "UltimateAdBlock-Hosts/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arrowwebprojects.Ultimate-AdBlock.AdBlockerExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arrowwebprojects.Ultimate-AdBlock.UltimateAdBlock-Hosts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		0704A2981C06443800FF14B0 /* Release */ = {
+		077341911CC286070085830D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = AdBlockerExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				INFOPLIST_FILE = "UltimateAdBlock-Hosts/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arrowwebprojects.Ultimate-AdBlock.AdBlockerExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arrowwebprojects.Ultimate-AdBlock.UltimateAdBlock-Hosts";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		077341A11CC286AE0085830D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "UltimateAdBlock-CSS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arrowwebprojects.Ultimate-AdBlock.UltimateAdBlock-CSS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		077341A21CC286AE0085830D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "UltimateAdBlock-CSS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arrowwebprojects.Ultimate-AdBlock.UltimateAdBlock-CSS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -585,14 +689,21 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0704A2961C06443800FF14B0 /* Build configuration list for PBXNativeTarget "AdBlockerExtension" */ = {
+		0773418F1CC286070085830D /* Build configuration list for PBXNativeTarget "UltimateAdBlock-Hosts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0704A2971C06443800FF14B0 /* Debug */,
-				0704A2981C06443800FF14B0 /* Release */,
+				077341901CC286070085830D /* Debug */,
+				077341911CC286070085830D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+		};
+		077341A01CC286AE0085830D /* Build configuration list for PBXNativeTarget "UltimateAdBlock-CSS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				077341A11CC286AE0085830D /* Debug */,
+				077341A21CC286AE0085830D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

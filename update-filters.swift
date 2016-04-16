@@ -53,7 +53,8 @@ let cssElementsSocialFanboyEnabled = true
 let javascriptElementsEnabled = true
 
 /// Complete filters block
-var filters = [[String:[String:String]]]()
+var blockerListHosts = [[String:[String:String]]]()
+var blockerListCssElements = [[String:[String:String]]]()
 
 print("------------------")
 print("Started generating the filters.json file.")
@@ -448,7 +449,7 @@ print("")
 for host in adServerHostnames {
     if host != "" {
         let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
-        filters.append(block)
+        blockerListHosts.append(block)
     }
 }
 
@@ -456,7 +457,7 @@ for host in adServerHostnames {
 for host in easylist_adservers {
     if host != "" {
         let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
-        filters.append(block)
+        blockerListHosts.append(block)
     }
 }
 
@@ -464,7 +465,7 @@ for host in easylist_adservers {
 for host in malwareHostnames {
     if host != "" {
         let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
-        filters.append(block)
+        blockerListHosts.append(block)
     }
 }
 
@@ -473,45 +474,57 @@ for customHost in customHostnames {
     if customHost != "" {
         
         let block = ["trigger" : ["url-filter" : String(customHost) ], "action" : [ "type" : "block" ] ]
-        filters.append(block)
+        blockerListHosts.append(block)
     }
 }
 
 /// Anti Adblock Elements
 let antiAdBlockElementsBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(antiAdBlockElements)" ] ]
-filters.append(antiAdBlockElementsBlock)
+blockerListCssElements.append(antiAdBlockElementsBlock)
 
 /// Ads CSS Elements
 let cssElementsAdsBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsAds)" ] ]
-filters.append(cssElementsAdsBlock)
+blockerListCssElements.append(cssElementsAdsBlock)
 
 /// Ads CSS Elements EasyList
 let cssElementsAdsEasyListBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsAdsEasyList)" ] ]
-filters.append(cssElementsAdsEasyListBlock)
+blockerListCssElements.append(cssElementsAdsEasyListBlock)
 
 /// Social CSS Elements
 let cssElementsSocialBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsSocial)" ] ]
-filters.append(cssElementsSocialBlock)
+blockerListCssElements.append(cssElementsSocialBlock)
 
 /// Social CSS Elements Fanboy List
 let cssElementsSocialFanboyBlock = ["trigger" : ["url-filter" : ".*" ], "action" : [ "type" : "css-display-none", "selector" : "\(cssElementsSocialFanboy)" ] ]
-filters.append(cssElementsSocialFanboyBlock)
+blockerListCssElements.append(cssElementsSocialFanboyBlock)
 
 /// Javascripts
 for javascriptElement in javascriptElements {
     let javascriptElementBlock = ["trigger" : ["url-filter" : "\(javascriptElement)" ], "action" : [ "type" : "block" ] ]
-    filters.append(javascriptElementBlock)
+    blockerListCssElements.append(javascriptElementBlock)
 }
 
 // MARK: Generate json file.
 /// Parse the JSON and write it to a file.
-print("Generating filters.json file..")
+print("Generating blockerList json files..")
 
-let data = try! NSJSONSerialization.dataWithJSONObject(filters, options: NSJSONWritingOptions.PrettyPrinted)
-let string = NSString(data: data, encoding: NSUTF8StringEncoding)
+/// Hosts
+let dataHosts = try! NSJSONSerialization.dataWithJSONObject(blockerListHosts, options: NSJSONWritingOptions.PrettyPrinted)
+let stringHosts = NSString(data: dataHosts, encoding: NSUTF8StringEncoding)
 
 do {
-    try string!.writeToFile("AdBlockerExtension/filters.json", atomically: false, encoding: NSUTF8StringEncoding)
+    try stringHosts!.writeToFile("UltimateAdBlock-Hosts/blockerList.json", atomically: false, encoding: NSUTF8StringEncoding)
+}
+catch {
+    print("Extension Writing Error: \(error)")
+}
+
+/// CSS
+let dataCSS = try! NSJSONSerialization.dataWithJSONObject(blockerListCssElements, options: NSJSONWritingOptions.PrettyPrinted)
+let stringCSS = NSString(data: dataCSS, encoding: NSUTF8StringEncoding)
+
+do {
+    try stringCSS!.writeToFile("UltimateAdBlock-CSS/blockerList.json", atomically: false, encoding: NSUTF8StringEncoding)
 }
 catch {
     print("Extension Writing Error: \(error)")
