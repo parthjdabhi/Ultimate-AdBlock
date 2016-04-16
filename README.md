@@ -8,7 +8,8 @@ The project is in active development. Basic blocking is working fine but the fil
 Ultimate AdBlock uses a couple of filters;
 
 ### Hostnames
-- [pgl.yoyo.org Adserver hostnames](https://pgl.yoyo.org/adservers/), updated 10 April 2016
+- [pgl.yoyo.org Adserver hostnames](https://pgl.yoyo.org/adservers/), updated 16 April 2016
+- [EasyList Blocklist (Section: Third-party advertisers)](https://easylist-downloads.adblockplus.org/easylist.txt), updated 16 April 2016
 - Custom hostnames, updated 10 April 2016
 
 ### CSS Element Hiding
@@ -26,10 +27,11 @@ The custom-hostnames.txt is also different. Every host is stored on a new line, 
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
 Run the script again to generate fresh filters.
 
-### Number of filters (as of 10 April 2016)
+### Number of filters (as of 16 April 2016)
 
 #### Hostnames:
-- yoyo.pgl.org AdServer hostnames: 2.423
+- yoyo.pgl.org AdServer hostnames: 2.413
+- Easylist hostnames: 4.468
 - Malwaredomainlist: 0
 - Custom hostnames: 65
 
@@ -41,13 +43,15 @@ Run the script again to generate fresh filters.
 - CSS Elements - Social Fanboys List: 6.705
 - Javascript files: 27
 
-Total: 25.627 / 50.000
+Total: 30.085 / 50.000
 
 ## ToDo
 
-- malwaredomainlist filters
-- privacy trackers filter
+- Malwaredomains (~18.000 hosts) filters
+- privacy trackers (hosts) filter
+- Easylist Dutch
 - Check for duplicate hostnames and remove them
+- Make two seperate extensions because of the 50.000 items max: one for the hosts and one for the css elements hiding.
 - OSX extension
 - iOS Interface to enable/disable filters
 
