@@ -171,6 +171,7 @@ if malwareHostnamesEnabled == true {
         
             let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
             
+            /*
             for host in hosts {
                 
                 if host.rangeOfString("127.0.0.1") != nil{
@@ -185,7 +186,7 @@ if malwareHostnamesEnabled == true {
                 } else {
                     malwareHostnamesIncorrectFormat += 1
                 }
-            }
+            }*/
         }
         
     } catch {
@@ -239,23 +240,8 @@ if customHostnamesEnabled == true {
         let contents = try NSString(contentsOfFile: customHostnamesFile, usedEncoding: nil) as String
         
         if contents.characters.count > 0 {
-            
-            /*
-            
-            if !adServerHostnames.contains(customHost) {
-                
-                let block = ["trigger" : ["url-filter" : String(customHost) ], "action" : [ "type" : "block" ] ]
-                //filters.append(block)
-            } else {
-                print("*********************")
-                print("* WARNING: \(customHost) already exists in the default adserver hostname list.\n* This entry will be ignored. You can delete this custom hostname from the list.")
-                print("*********************")
-                print("")
-            }
-            
+
             customHostnames = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
-        */
-            // TODO: Fix custom hostnames duplicate warning
         }
         
     } catch {
