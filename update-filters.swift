@@ -26,7 +26,7 @@ import Foundation
 let adServerHostnamesEnabled = true
 
 /// Easylist adservers
-var easylist_adserversEnabled = true
+var easylist_adserversEnabled = false
 
 /// Malwaredomains
 let malwareHostnamesEnabled = true
@@ -57,6 +57,8 @@ var filters = [[String:[String:String]]]()
 
 print("------------------")
 print("Started generating the filters.json file.")
+
+let start = NSDate()
 
 // MARK: FILTER: Default yoyo adservers
 /// pgl.yoyo adservers
@@ -515,6 +517,9 @@ catch {
     print("Extension Writing Error: \(error)")
 }
 
-print("All done! filters.json has been updated.")
+let end = NSDate()
+let timeInterval: Double = end.timeIntervalSinceDate(start)
+
+print("All done! filters.json has been updated in \(timeInterval) seconds.")
 print("Restart the app on the device to load the new filters.")
 print("------------------")
