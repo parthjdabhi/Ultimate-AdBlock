@@ -53,8 +53,9 @@ Total: 23.139 / 50.000
 
 - privacy trackers (hosts) filter
 - Easylist Dutch
-- OSX extension
+- OSX Safari extension
 - iOS Interface to enable/disable filters
+- Cleanup iOS app interface
 
 ## How to install
 
