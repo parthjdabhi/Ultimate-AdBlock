@@ -20,6 +20,9 @@ import Foundation
 /// filters.json in the AdBlockerExtension is now updated.
 /// Restart or run the app on your device to get the newest filters.
 
+print("------------------")
+print("Started generating the filters.json file.")
+
 // MARK: Enabled/Disabled per filter
 
 /// Default pgl.yoyo adservers
@@ -52,22 +55,23 @@ let cssElementsSocialFanboyEnabled = true
 /// Javascript elements
 let javascriptElementsEnabled = true
 
-/// Complete filters block
+/// Complete filters json block
 var blockerListHosts = [[String:[String:String]]]()
 var blockerListCssElements = [[String:[String:String]]]()
 
-print("------------------")
-print("Started generating the filters.json file.")
-
+/// The start time
 let start = NSDate()
+
+/// Complete array of all the hostnames that are going to be blocked.
+var hostnamesToBlock = [String]()
 
 // MARK: FILTER: Default yoyo adservers
 /// pgl.yoyo adservers
 /// !!!
 /// All credit for these hostnames: https://pgl.yoyo.org/adservers/
 /// !!!
-var adServerHostnames = [String]()
 let adServerHostnamesFile = "BlockData/yoyo-adservers.txt"
+var adServerHostnamesCount = 0
 
 if adServerHostnamesEnabled == true {
 
@@ -77,7 +81,12 @@ if adServerHostnamesEnabled == true {
         
         if contents.characters.count > 0 {
             
-            adServerHostnames = contents.componentsSeparatedByString(",")
+            let hosts = contents.componentsSeparatedByString(",")
+            adServerHostnamesCount = hosts.count
+            
+            for host in hosts {
+                hostnamesToBlock.append(host)
+            }
             
         }
         
@@ -93,9 +102,8 @@ if adServerHostnamesEnabled == true {
 /// !!!
 /// All credit for these hostnames: https://easylist-downloads.adblockplus.org/easylist.txt
 /// !!!
-var easylist_adservers = [String]()
 let easylist_adserversFile = "BlockData/easylist_adservers.txt"
-var easylist_adserversDuplicates = 0
+var easylist_adserversCount = 0
 
 if easylist_adserversEnabled == true {
     
@@ -106,6 +114,7 @@ if easylist_adserversEnabled == true {
         if contents.characters.count > 0 {
             
             let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            easylist_adserversCount = hosts.count
             
             for host in hosts {
                 
@@ -128,15 +137,7 @@ if easylist_adserversEnabled == true {
                         trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
                     }
                     
-                    /// Check for duplicates and add the host.
-                    if(!easylist_adservers.contains(trimmedHost)) {
-                        if (!adServerHostnames.contains(trimmedHost)) {
-                            easylist_adservers.append(trimmedHost)
-                        } else {
-                            easylist_adserversDuplicates += 1
-                        }
-                        
-                    }
+                    hostnamesToBlock.append(trimmedHost)
                     
                 }
             }
@@ -147,10 +148,6 @@ if easylist_adserversEnabled == true {
         print("Can't read the \(easylist_adserversFile) file.")
     }
     
-    if easylist_adserversDuplicates > 0 {
-        print("Found \(easylist_adserversDuplicates) duplicates in \(easylist_adserversFile). They are listed in another host file, so these are ignored.")
-    }
-    
 }
 
 // MARK: FILTER: Malwaredomainlist
@@ -159,10 +156,8 @@ if easylist_adserversEnabled == true {
 /// !!!
 /// All credit for these hostnames:
 /// !!!
-var malwareHostnames = [String]()
 let malwareHostnamesFile = "BlockData/malwaredomainlist.txt"
-var malwareHostnamesDuplicates = 0
-var malwareHostnamesIncorrectFormat = 0
+var malwareHostnamesCount = 0
 
 if malwareHostnamesEnabled == true {
 
@@ -196,14 +191,6 @@ if malwareHostnamesEnabled == true {
         print("Can't read the \(malwareHostnamesFile) file.")
     }
     
-    if malwareHostnamesDuplicates > 0 {
-        print("Found \(malwareHostnamesDuplicates) duplicates in \(malwareHostnamesFile). They are listed in another host file, so these are ignored.")
-    }
-    
-    if malwareHostnamesIncorrectFormat > 0 {
-        print("Found \(malwareHostnamesIncorrectFormat) hosts in \(malwareHostnamesFile) that has an incorrect format.")
-    }
-    
 }
 
 /*
@@ -233,25 +220,31 @@ do {
 
 // MARK: FILTER: Custom Hostnames
 /// Custom hostnames to block
-var customHostnames = [String]()
 let customHostnamesFile = "BlockData/custom-hostnames.txt"
+var customHostnamesCount = 0
 
 if customHostnamesEnabled == true {
-
+    
     do {
         
         let contents = try NSString(contentsOfFile: customHostnamesFile, usedEncoding: nil) as String
         
         if contents.characters.count > 0 {
-
-            customHostnames = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            
+            let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            customHostnamesCount = hosts.count
+            
+            for host in hosts {
+                hostnamesToBlock.append(host)
+            }
+            
         }
         
     } catch {
         print("Can't read the \(customHostnamesFile) file.")
     }
-
 }
+
 // MARK: FILTER: Anti Adblock Elements
 /// Remove Anti AdBlock CSS elements
 var antiAdBlockElements: String = ""
@@ -406,10 +399,6 @@ if javascriptElementsEnabled == true {
 }
 
 /// Statistics
-let adServerHostnamesCount = adServerHostnames.count
-let easylist_adserversCount = easylist_adservers.count
-let malwareHostnamesCount = malwareHostnames.count
-let customHostnamesCount = customHostnames.count
 
 let cssElementsAdsCount = cssElementsAds.componentsSeparatedByString(",").count
 let cssElementsAdsEasyListCount = cssElementsAdsEasyList.componentsSeparatedByString(",").count
@@ -428,8 +417,17 @@ print("")
 print("-- Hostnames:")
 print("yoyo.pgl.org AdServer hostnames: \(numberFormatter.stringFromNumber(adServerHostnamesCount)!)")
 print("Easylist hostnames: \(numberFormatter.stringFromNumber(easylist_adserversCount)!)")
-print("Malwaredomainlist: \(numberFormatter.stringFromNumber(malwareHostnamesCount)!)")
+print("Malwaredomains: \(numberFormatter.stringFromNumber(malwareHostnamesCount)!)")
 print("Custom hostnames: \(numberFormatter.stringFromNumber(customHostnamesCount)!)")
+
+let totalHostnamesToBlock = adServerHostnamesCount + easylist_adserversCount + malwareHostnamesCount + customHostnamesCount
+let totalHostnamesToBlockUnique = Array(Set(hostnamesToBlock)).count
+
+print("")
+print("Total number of Hostnames: \(totalHostnamesToBlock)")
+print("Duplicate hostnames removed: \(totalHostnamesToBlock - totalHostnamesToBlockUnique)")
+print("Total Unique number of hostnames added to the blocklist: \(numberFormatter.stringFromNumber(totalHostnamesToBlockUnique)!) / 50.000")
+
 print("")
 print("-- CSS Elements Hiding & JavaScripts:")
 print("CSS Elements (Custom) - Ads: \(numberFormatter.stringFromNumber(cssElementsAdsCount)!)")
@@ -440,40 +438,15 @@ print("CSS Elements - Social Fanboys List: \(numberFormatter.stringFromNumber(cs
 print("Javascript files: \(numberFormatter.stringFromNumber(javascriptElementsCount)!)")
 print("")
 
-let totalBlockItems = adServerHostnamesCount + easylist_adserversCount + malwareHostnamesCount + customHostnamesCount + cssElementsAdsCount + cssElementsAdsEasyListCount + cssElementsSocialCount + antiAdBlockElementsCount + cssElementsSocialFanboyCount + javascriptElementsCount
+let totalCSSElementsToBlock = cssElementsAdsCount + cssElementsAdsEasyListCount + cssElementsSocialCount + antiAdBlockElementsCount + cssElementsSocialFanboyCount + javascriptElementsCount
 
-print("Total: \(numberFormatter.stringFromNumber(totalBlockItems)!) / 50.000")
+print("Total: \(numberFormatter.stringFromNumber(totalCSSElementsToBlock)!) / 50.000")
 print("")
 
 /// Iterate over every hostname and add it to the block list.
-for host in adServerHostnames {
+for host in hostnamesToBlock {
     if host != "" {
         let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
-        blockerListHosts.append(block)
-    }
-}
-
-/// Iterate over every hostname and add it to the block list.
-for host in easylist_adservers {
-    if host != "" {
-        let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
-        blockerListHosts.append(block)
-    }
-}
-
-/// Iterate over every hostname and add it to the block list.
-for host in malwareHostnames {
-    if host != "" {
-        let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
-        blockerListHosts.append(block)
-    }
-}
-
-/// Iterate over every custom hostname and add it to the block list.
-for customHost in customHostnames {
-    if customHost != "" {
-        
-        let block = ["trigger" : ["url-filter" : String(customHost) ], "action" : [ "type" : "block" ] ]
         blockerListHosts.append(block)
     }
 }
@@ -533,6 +506,6 @@ catch {
 let end = NSDate()
 let timeInterval: Double = end.timeIntervalSinceDate(start)
 
-print("All done! filters.json has been updated in \(timeInterval) seconds.")
+print("All done! filters.json has been updated in \(String(format: "%.2f", timeInterval)) seconds.")
 print("Restart the app on the device to load the new filters.")
 print("------------------")
