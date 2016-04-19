@@ -150,13 +150,14 @@ if easylist_adserversEnabled == true {
     
 }
 
-// MARK: FILTER: Malwaredomainlist
+// MARK: FILTER: Malwaredomains
 
-/// MalwareDomainList
+/// MalwareDomains
 /// !!!
-/// All credit for these hostnames:
+/// All credit for these hostnames: https://easylist-downloads.adblockplus.org/malwaredomains_full.txt
 /// !!!
-let malwareHostnamesFile = "BlockData/malwaredomainlist.txt"
+let malwareHostnamesFile = "BlockData/malwaredomains.txt"
+var malwareHostnamesToBlock = [String]()
 var malwareHostnamesCount = 0
 
 if malwareHostnamesEnabled == true {
@@ -168,23 +169,33 @@ if malwareHostnamesEnabled == true {
         if contents.characters.count > 0 {
         
             let hosts = contents.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+            malwareHostnamesCount = hosts.count
             
-            /*
             for host in hosts {
                 
-                if host.rangeOfString("127.0.0.1") != nil{
-                
-                    let trimmedHost = host.substringFromIndex(host.startIndex.advancedBy(10))
+                if host.rangeOfString("||") != nil{
                     
-                    if (!adServerHostnames.contains(trimmedHost)) {
-                        malwareHostnames.append(trimmedHost)
-                    } else {
-                        malwareHostnamesDuplicates += 1
+                    var trimmedHost = host
+                    
+                    trimmedHost = trimmedHost.stringByReplacingOccurrencesOfString("||", withString: "")
+                    
+                    /// Remove all special characters so all that remains are the hosts
+                    if let dotRange = trimmedHost.rangeOfString("^") {
+                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
                     }
-                } else {
-                    malwareHostnamesIncorrectFormat += 1
+                    
+                    if let dotRange = trimmedHost.rangeOfString("$") {
+                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    }
+                    
+                    if let dotRange = trimmedHost.rangeOfString("*") {
+                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
+                    }
+                    
+                    malwareHostnamesToBlock.append(trimmedHost)
+                    
                 }
-            }*/
+            }
         }
         
     } catch {
@@ -421,7 +432,7 @@ print("Malwaredomains: \(numberFormatter.stringFromNumber(malwareHostnamesCount)
 print("Custom hostnames: \(numberFormatter.stringFromNumber(customHostnamesCount)!)")
 
 let totalHostnamesToBlock = adServerHostnamesCount + easylist_adserversCount + malwareHostnamesCount + customHostnamesCount
-let totalHostnamesToBlockUnique = Array(Set(hostnamesToBlock)).count
+let totalHostnamesToBlockUnique = Array(Set(hostnamesToBlock)).count + malwareHostnamesCount
 
 print("")
 print("Total number of Hostnames: \(totalHostnamesToBlock)")
@@ -445,10 +456,15 @@ print("")
 
 /// Iterate over every hostname and add it to the block list.
 for host in hostnamesToBlock {
-    if host != "" {
-        let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
-        blockerListHosts.append(block)
-    }
+    let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
+    blockerListHosts.append(block)
+}
+
+/// Iterate over every malware hostname and add it to the block list.
+for host in malwareHostnamesToBlock {
+    let block = ["trigger" : ["url-filter" : String(host) ], "action" : [ "type" : "block" ] ]
+    blockerListHosts.append(block)
+    
 }
 
 /// Anti Adblock Elements

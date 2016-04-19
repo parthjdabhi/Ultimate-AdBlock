@@ -19,7 +19,7 @@
 		07673F0E1CB2A215003E718A /* custom-hostnames.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F0C1CB2A215003E718A /* custom-hostnames.txt */; };
 		07673F101CB2A215003E718A /* yoyo-adservers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F0D1CB2A215003E718A /* yoyo-adservers.txt */; };
 		07673F131CB2A517003E718A /* custom-css-elements-antiadblock.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F121CB2A517003E718A /* custom-css-elements-antiadblock.txt */; };
-		07673F161CB2E54B003E718A /* malwaredomainlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F151CB2E54B003E718A /* malwaredomainlist.txt */; };
+		07673F161CB2E54B003E718A /* malwaredomains.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F151CB2E54B003E718A /* malwaredomains.txt */; };
 		077341801CC25AF80085830D /* easylist_adservers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0773417F1CC25AF80085830D /* easylist_adservers.txt */; };
 		077341881CC286070085830D /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 077341871CC286070085830D /* blockerList.json */; };
 		0773418A1CC286070085830D /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077341891CC286070085830D /* ActionRequestHandler.swift */; };
@@ -87,7 +87,7 @@
 		07673F0C1CB2A215003E718A /* custom-hostnames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "custom-hostnames.txt"; path = "BlockData/custom-hostnames.txt"; sourceTree = SOURCE_ROOT; };
 		07673F0D1CB2A215003E718A /* yoyo-adservers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "yoyo-adservers.txt"; path = "BlockData/yoyo-adservers.txt"; sourceTree = SOURCE_ROOT; };
 		07673F121CB2A517003E718A /* custom-css-elements-antiadblock.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "custom-css-elements-antiadblock.txt"; path = "BlockData/custom-css-elements-antiadblock.txt"; sourceTree = SOURCE_ROOT; };
-		07673F151CB2E54B003E718A /* malwaredomainlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = malwaredomainlist.txt; path = BlockData/malwaredomainlist.txt; sourceTree = SOURCE_ROOT; };
+		07673F151CB2E54B003E718A /* malwaredomains.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = malwaredomains.txt; path = BlockData/malwaredomains.txt; sourceTree = SOURCE_ROOT; };
 		07673F181CB3C39D003E718A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		0773417F1CC25AF80085830D /* easylist_adservers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = easylist_adservers.txt; path = BlockData/easylist_adservers.txt; sourceTree = SOURCE_ROOT; };
 		077341851CC286070085830D /* UltimateAdBlock-Hosts.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "UltimateAdBlock-Hosts.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,7 +259,7 @@
 			children = (
 				07673F0D1CB2A215003E718A /* yoyo-adservers.txt */,
 				0773417F1CC25AF80085830D /* easylist_adservers.txt */,
-				07673F151CB2E54B003E718A /* malwaredomainlist.txt */,
+				07673F151CB2E54B003E718A /* malwaredomains.txt */,
 				07D46FA41CB52C130044137A /* easyprivacy.txt */,
 			);
 			name = Hostnames;
@@ -384,7 +384,7 @@
 				077341801CC25AF80085830D /* easylist_adservers.txt in Resources */,
 				07D126E01CB90D5600842B4E /* css-elements-ads-easylist.txt in Resources */,
 				07D46FA51CB52C130044137A /* custom-css-elements-ads.txt in Resources */,
-				07673F161CB2E54B003E718A /* malwaredomainlist.txt in Resources */,
+				07673F161CB2E54B003E718A /* malwaredomains.txt in Resources */,
 				07D46FA61CB52C130044137A /* custom-css-elements-social.txt in Resources */,
 				07D46FA71CB52C130044137A /* easyprivacy.txt in Resources */,
 				07673F101CB2A215003E718A /* yoyo-adservers.txt in Resources */,
@@ -696,6 +696,7 @@
 				077341911CC286070085830D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		077341A01CC286AE0085830D /* Build configuration list for PBXNativeTarget "UltimateAdBlock-CSS" */ = {
 			isa = XCConfigurationList;
@@ -704,6 +705,7 @@
 				077341A21CC286AE0085830D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

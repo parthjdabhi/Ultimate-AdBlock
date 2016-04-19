@@ -27,7 +27,7 @@ The custom-hostnames.txt is also different. Every host is stored on a new line, 
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
 Run the script again to generate fresh filters.
 
-### Number of filters (as of 16 April 2016)
+### Number of filters (as of 19 April 2016)
 
 #### Hostnames:
 - yoyo.pgl.org AdServer hostnames: 2.413
@@ -50,8 +50,6 @@ Total: 30.085 / 50.000
 - Malwaredomains (~18.000 hosts) filters
 - privacy trackers (hosts) filter
 - Easylist Dutch
-- Check for duplicate hostnames and remove them
-- Make two seperate extensions because of the 50.000 items max: one for the hosts and one for the css elements hiding.
 - OSX extension
 - iOS Interface to enable/disable filters
 
@@ -59,7 +57,8 @@ Total: 30.085 / 50.000
 
 - Download the project
 - Build the project on your device
-- On your device go to Settings -> Safari -> Content Blockers -> Enable 
+- On your device go to Settings -> Safari -> Content Blockers
+- Enable the Hosts and CSS Element Hiding Blocker
 - Enjoy a cleaner web with no annoying ads and trackers!
 
 This Content Blocking API is only available on 64 bit devices (iPhone 5s and newer, iPad Air and newer)
