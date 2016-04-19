@@ -2,7 +2,7 @@
 Ad + Tracker (Content) Blocker for iOS & OSX written in Swift, using the new Content Blocker API for fast blocking.
 Blocks hostnames and css items.
 
-The project is in active development. Basic blocking is working fine but the filters.json needs a couple of more filters before it is a good replacement for the popular existing ones.
+The project is in active development.
 
 ## Filters
 Ultimate AdBlock uses a couple of filters;
@@ -10,6 +10,7 @@ Ultimate AdBlock uses a couple of filters;
 ### Hostnames
 - [pgl.yoyo.org Adserver hostnames](https://pgl.yoyo.org/adservers/), updated 16 April 2016
 - [EasyList Blocklist (Section: Third-party advertisers)](https://easylist-downloads.adblockplus.org/easylist.txt), updated 16 April 2016
+- [Malwaredomains](http://mirror1.malwaredomains.com), updated 19 April 2016
 - Custom hostnames, updated 10 April 2016
 
 ### CSS Element Hiding
@@ -20,20 +21,23 @@ Ultimate AdBlock uses a couple of filters;
 - Custom Social sharing CSS elements, updated 10 April 2016
 - Javascript files, updated 10 April 2016
 
-All block data is stored in .txt files. Some have different formats. For example the pgl.yoyo adservers are all on one line, seperated with a ,.
-The malwaredomainlist.txt has a different format; 127.0.0.1 examplehost.com. The update-filters.swift script removes the 127.0.0.1 part so all that remains are the hosts, seperated with a ,.
-The custom-hostnames.txt is also different. Every host is stored on a new line, for clarity.
+All block data is stored in .txt files. Some have different formats. For example the pgl.yoyo adservers are all on one line, seperated with a comma.
+The other filters are different. Every host is stored on a new line, for clarity.
 
 By default all filters are enabled. If you want to disable a filter (for example the social css elements) you can do so by setting the correct variable in update-filters.swift to false.
-Run the script again to generate fresh filters.
+Run the script again to generate fresh filters. Reloading the filters into Safari (especially the hosts) can take up to 15 seconds.
 
 ### Number of filters (as of 19 April 2016)
 
 #### Hostnames:
 - yoyo.pgl.org AdServer hostnames: 2.413
-- Easylist hostnames: 4.468
-- Malwaredomainlist: 0
+- Easylist hostnames: 5.093
+- Malwaredomains: 19.062
 - Custom hostnames: 65
+
+Total number of Hostnames: 26.633
+Duplicate hostnames removed: 629
+Total Unique number of hostnames added to the blocklist: 26.004 / 50.000
 
 #### CSS Elements Hiding & JavaScripts:
 - CSS Elements (Custom) - Ads: 62
@@ -43,11 +47,10 @@ Run the script again to generate fresh filters.
 - CSS Elements - Social Fanboys List: 6.705
 - Javascript files: 27
 
-Total: 30.085 / 50.000
+Total: 23.139 / 50.000
 
 ## ToDo
 
-- Malwaredomains (~18.000 hosts) filters
 - privacy trackers (hosts) filter
 - Easylist Dutch
 - OSX extension
