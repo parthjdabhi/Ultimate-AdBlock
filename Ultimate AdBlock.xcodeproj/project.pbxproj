@@ -15,11 +15,11 @@
 		071DFF561C0A33A9006BB9E5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 071DFF581C0A33A9006BB9E5 /* Localizable.strings */; };
 		071DFF5B1C0B06A9006BB9E5 /* FiltersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071DFF5A1C0B06A9006BB9E5 /* FiltersTVC.swift */; };
 		071DFF5D1C0B073C006BB9E5 /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071DFF5C1C0B073C006BB9E5 /* SettingsTVC.swift */; };
+		074488381CC67EE70064ECCA /* justdomains in Resources */ = {isa = PBXBuildFile; fileRef = 074488371CC67EE70064ECCA /* justdomains */; };
 		075B47BF1CA934BC0057E582 /* update-filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B47BE1CA934BC0057E582 /* update-filters.swift */; };
 		07673F0E1CB2A215003E718A /* custom-hostnames.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F0C1CB2A215003E718A /* custom-hostnames.txt */; };
 		07673F101CB2A215003E718A /* yoyo-adservers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F0D1CB2A215003E718A /* yoyo-adservers.txt */; };
 		07673F131CB2A517003E718A /* custom-css-elements-antiadblock.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F121CB2A517003E718A /* custom-css-elements-antiadblock.txt */; };
-		07673F161CB2E54B003E718A /* malwaredomains.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07673F151CB2E54B003E718A /* malwaredomains.txt */; };
 		077341801CC25AF80085830D /* easylist_adservers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0773417F1CC25AF80085830D /* easylist_adservers.txt */; };
 		077341881CC286070085830D /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 077341871CC286070085830D /* blockerList.json */; };
 		0773418A1CC286070085830D /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077341891CC286070085830D /* ActionRequestHandler.swift */; };
@@ -83,11 +83,11 @@
 		071DFF591C0A33B9006BB9E5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		071DFF5A1C0B06A9006BB9E5 /* FiltersTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersTVC.swift; path = Controllers/FiltersTVC.swift; sourceTree = "<group>"; };
 		071DFF5C1C0B073C006BB9E5 /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTVC.swift; path = Controllers/SettingsTVC.swift; sourceTree = "<group>"; };
+		074488371CC67EE70064ECCA /* justdomains */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = justdomains; path = BlockData/justdomains; sourceTree = SOURCE_ROOT; };
 		075B47BE1CA934BC0057E582 /* update-filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "update-filters.swift"; sourceTree = SOURCE_ROOT; };
 		07673F0C1CB2A215003E718A /* custom-hostnames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "custom-hostnames.txt"; path = "BlockData/custom-hostnames.txt"; sourceTree = SOURCE_ROOT; };
 		07673F0D1CB2A215003E718A /* yoyo-adservers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "yoyo-adservers.txt"; path = "BlockData/yoyo-adservers.txt"; sourceTree = SOURCE_ROOT; };
 		07673F121CB2A517003E718A /* custom-css-elements-antiadblock.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "custom-css-elements-antiadblock.txt"; path = "BlockData/custom-css-elements-antiadblock.txt"; sourceTree = SOURCE_ROOT; };
-		07673F151CB2E54B003E718A /* malwaredomains.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = malwaredomains.txt; path = BlockData/malwaredomains.txt; sourceTree = SOURCE_ROOT; };
 		07673F181CB3C39D003E718A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		0773417F1CC25AF80085830D /* easylist_adservers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = easylist_adservers.txt; path = BlockData/easylist_adservers.txt; sourceTree = SOURCE_ROOT; };
 		077341851CC286070085830D /* UltimateAdBlock-Hosts.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "UltimateAdBlock-Hosts.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,8 +259,8 @@
 			children = (
 				07673F0D1CB2A215003E718A /* yoyo-adservers.txt */,
 				0773417F1CC25AF80085830D /* easylist_adservers.txt */,
-				07673F151CB2E54B003E718A /* malwaredomains.txt */,
 				07D46FA41CB52C130044137A /* easyprivacy.txt */,
+				074488371CC67EE70064ECCA /* justdomains */,
 			);
 			name = Hostnames;
 			sourceTree = "<group>";
@@ -384,8 +384,8 @@
 				077341801CC25AF80085830D /* easylist_adservers.txt in Resources */,
 				07D126E01CB90D5600842B4E /* css-elements-ads-easylist.txt in Resources */,
 				07D46FA51CB52C130044137A /* custom-css-elements-ads.txt in Resources */,
-				07673F161CB2E54B003E718A /* malwaredomains.txt in Resources */,
 				07D46FA61CB52C130044137A /* custom-css-elements-social.txt in Resources */,
+				074488381CC67EE70064ECCA /* justdomains in Resources */,
 				07D46FA71CB52C130044137A /* easyprivacy.txt in Resources */,
 				07673F101CB2A215003E718A /* yoyo-adservers.txt in Resources */,
 				071DFF561C0A33A9006BB9E5 /* Localizable.strings in Resources */,

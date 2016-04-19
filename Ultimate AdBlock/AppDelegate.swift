@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        /// Reload the Blocker List on starting the app.
+        let identifierHosts = "com.arrowwebprojects.Ultimate-AdBlock.UltimateAdBlock-Hosts"
+        SFContentBlockerManager.reloadContentBlockerWithIdentifier(identifierHosts) { (error) -> Void in
+            print(error)
+            print("Reloaded.")
+        }
+        
+        let identifierCSS = "com.arrowwebprojects.Ultimate-AdBlock.UltimateAdBlock-CSS"
+        SFContentBlockerManager.reloadContentBlockerWithIdentifier(identifierCSS) { (error) -> Void in
+            print(error)
+            print("Reloaded.")
+        }
+        
         return true
     }
 

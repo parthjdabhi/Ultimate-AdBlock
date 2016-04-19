@@ -152,11 +152,11 @@ if easylist_adserversEnabled == true {
 
 // MARK: FILTER: Malwaredomains
 
-/// MalwareDomains
+/// MalwareDomains.com
 /// !!!
-/// All credit for these hostnames: https://easylist-downloads.adblockplus.org/malwaredomains_full.txt
+/// All credit for these hostnames: http://mirror1.malwaredomains.com
 /// !!!
-let malwareHostnamesFile = "BlockData/malwaredomains.txt"
+let malwareHostnamesFile = "BlockData/justdomains"
 var malwareHostnamesToBlock = [String]()
 var malwareHostnamesCount = 0
 
@@ -173,28 +173,8 @@ if malwareHostnamesEnabled == true {
             
             for host in hosts {
                 
-                if host.rangeOfString("||") != nil{
-                    
-                    var trimmedHost = host
-                    
-                    trimmedHost = trimmedHost.stringByReplacingOccurrencesOfString("||", withString: "")
-                    
-                    /// Remove all special characters so all that remains are the hosts
-                    if let dotRange = trimmedHost.rangeOfString("^") {
-                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
-                    }
-                    
-                    if let dotRange = trimmedHost.rangeOfString("$") {
-                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
-                    }
-                    
-                    if let dotRange = trimmedHost.rangeOfString("*") {
-                        trimmedHost.removeRange(dotRange.startIndex..<trimmedHost.endIndex)
-                    }
-                    
-                    malwareHostnamesToBlock.append(trimmedHost)
-                    
-                }
+                malwareHostnamesToBlock.append(host)
+
             }
         }
         
