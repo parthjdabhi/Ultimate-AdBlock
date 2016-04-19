@@ -36,7 +36,9 @@ Run the script again to generate fresh filters. Reloading the filters into Safar
 - Custom hostnames: 65
 
 Total number of Hostnames: 26.633
+
 Duplicate hostnames removed: 629
+
 Total Unique number of hostnames added to the blocklist: 26.004 / 50.000
 
 #### CSS Elements Hiding & JavaScripts:
